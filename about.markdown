@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-This is my website for ECE 4160 labs 
+This is my about page on labs 

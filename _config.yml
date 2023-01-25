@@ -23,8 +23,7 @@ email: ljk74@cornell.edu
 description: >- # this means to ignore newlines until "baseurl:"
   This is the documentation for what I have completed in ECE-4160
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  lk1007
 
 # Build settings
 theme: minima
