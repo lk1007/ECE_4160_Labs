@@ -22,7 +22,6 @@ title: Liam Kain - ECE-4160
 email: ljk74@cornell.edu
 description: >- # this means to ignore newlines until "baseurl:"
   This is the documentation for what I have completed in ECE-4160
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
