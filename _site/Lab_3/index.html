@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 3 | Liam Kain - ECE-4160</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Lab 3" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160" />
+<meta property="og:description" content="This is the documentation for what I have completed in ECE-4160" />
+<link rel="canonical" href="http://localhost:4000/Lab_3/" />
+<meta property="og:url" content="http://localhost:4000/Lab_3/" />
+<meta property="og:site_name" content="Liam Kain - ECE-4160" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 3" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"This is the documentation for what I have completed in ECE-4160","headline":"Lab 3","url":"http://localhost:4000/Lab_3/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Liam Kain - ECE-4160" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Liam Kain - ECE-4160</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Lab_1/">Lab 1</a><a class="page-link" href="/Lab_2/">Lab 2</a><a class="page-link" href="/Lab_3/">Lab 3</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Lab 3</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="prelab">Prelab</h2>
+
+<p>For the prelab, various things had to be planned out around the TOF sensors</p>
+
+<p>The sensor address was originally 0x29(decimal 41) which was a problem since if both TOF sensors had the same address, then polling both sensors for data would create a response from both of the sensors thus not being able to discern which sensor sent the data</p>
+
+<p>To use two TOF sensors, the “xshut” pin had be utilized on the TOF sensors. By turning this pin low using GPIO pins on the artemis, the sensor could be briefly turned off and be able to only address the other sensor. By turning off one sensor and using the sensor.begin() function on the other sensor with one i2c address and then switching the xshut pins and repeating the process with another address, both sensors could be set up with different i2c addresses. Using this modification, the procedure in the example code for the TOF sensors could simply be repeated but by using a different i2c address to address the sensors.</p>
+
+<p>Since the robot has to detect distances from the side and the front, the sensors must be placed on the outside of the robot. Because of this, the two long QWIIC connectors were used for the TOF sensors in order to give them the maneuvaribility in placement on the robot. One possible placement of the sensors is one in the front of the robot and one on the right side of the robot. This could cause problems if obstacles come from the left or back of the robot, so only two directions can really be measured at a time.</p>
+
+<p>Here is a sketch of the final wiring that needed to be done on the TOF sensors</p>
+
+<p><img src="../images/TOF_layout.jpg" alt="Italian Trulli" width="50%" /></p>
+
+<h2 id="lab-tasks">Lab Tasks</h2>
+<h1 id="assembly">Assembly</h1>
+<p>First, both of the TOF sensors were attached to the breakout board, though for now, only one sensor was used.</p>
+
+<p><img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="50%" /></p>
+
+<h1 id="i2c">I2C</h1>
+<p>By running the wire_i2c example program, the artemis could scan the I2C addresses connected to it resulting in this output.</p>
+
+<p><img src="../images/I2C_Scan.png" alt="Italian Trulli" width="50%" /></p>
+
+<p>As can be seen, there are two I2C addresses present. This is because looking at the picture, the IMU is connected, so that address shows up as well, but the 0x29
+address for the TOF sensor can be seen.</p>
+
+<h1 id="distance-measurements">Distance Measurements</h1>
+<p>Since the robot is fast, the obstacles the robot it’s expecting will need to be far away so that the robot can adjust in time. Because of that, I chose the “long”
+mode. With this mode, I collected various data points over distances by marking distances along a wall and moving the TOF sensor along it facing an object on the other end. I was therefore able to collect 100s of distance measurements from the TOF sensor using the bluetooth modifications I describe later and I was able to produce this graph.</p>
+
+<p><img src="../images/Distance Setting data.png" alt="Italian Trulli" width="50%" /></p>
+
+<p>As can be seen from the graph. The data is generally consistent and linear. The stdev bars that I created barely showed up until the longer distances were measured.</p>
+
+<p>To make the TOF sensors work in parallel, I modified the artemis code according to the prelab, so this was done</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalWrite(XSHUT_PIN_1, LOW);
+    Wire.begin();
+    if (!vl53_2.begin(0x20, &amp;Wire))
+    {
+        Serial.print(F("Error on init of VL sensor_1: "));
+        Serial.println(vl53_2.vl_status);
+        while (1)
+            delay(10);
+    }
+    digitalWrite(XSHUT_PIN_1, HIGH);
+    digitalWrite(XSHUT_PIN_2, LOW);
+    if (!vl53_1.begin(0x29, &amp;Wire))
+    {
+        Serial.print(F("Error on init of VL sensor_2: "));
+        Serial.println(vl53_1.vl_status);
+        while (1)
+            delay(10);
+    }
+    digitalWrite(XSHUT_PIN_2, HIGH); With this modification to the example TOF code as able to duplicate the example code using the vl53_2 and vl53_1 objects instead of one vl53 object. With this, I was able to run the sensors in parallel creating this output.
+</code></pre></div></div>
+
+<p><img src="../images/2_TOF_monitor.png" alt="Italian Trulli" width="50%" /></p>
+
+<p>The alternating and different data based on their positions, it can be seen the sensors are being polled in parallel.</p>
+
+<h1 id="tof-sensor-speed">Tof sensor speed</h1>
+<p>Since the speed of the sensors are a limiting factor. The sensors have to be read in an interrupt style fashion. To do this, I used the example code when testing the TOF sensors, but outside of the if statement, put a print of millis() resulting in data like this</p>
+
+<p><img src="../images/timing.png" alt="Italian Trulli" width="50%" /></p>
+
+<p>the code that did this is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (vl53_2.dataReady()) {
+// new measurement for the taking!
+distance = vl53_2.distance();
+if (distance == -1) {
+  // something went wrong!
+  Serial.print(F("Couldn't get distance: "));
+  Serial.println(vl53_2.vl_status);
+  return;
+}
+//Serial.print(F("Distance: "));
+Serial.print("sens_2 ");
+Serial.print(distance);
+Serial.println(" mm");
+// data is read out, time for another reading!
+vl53_2.clearInterrupt();
+}
+Serial.println(millis());
+</code></pre></div></div>
+
+<p>As can be seen by the output, when the sensors are not collecting data, the loop takes around 3ms, but if the sensors are collecting data, the loop takes around 12ms, a much longer time, so by reducing the amount of times the sensors are polled, a large number of calculations can be made.</p>
+
+<h1 id="time-v-distance">Time v Distance</h1>
+<p>Finally, I had to modify the Lab 2 code to use this new distance data. To do this, I first used the standard procedure of adding a bluetooth command. Then, I inserted the interrupt style distance measuring from the last section into the handle_command() function but instead of printing the distance, I stored them in variables distance_1 and distance_2. I then created a characteristic string like this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.append("T:");
+tx_estring_value.append((int)millis());
+tx_estring_value.append("|");
+tx_estring_value.append("D:");
+tx_estring_value.append(distance_1);
+tx_estring_value.append("|");
+tx_estring_value.append("D:");
+tx_estring_value.append(distance_2);
+</code></pre></div></div>
+
+<p>In the python code, I modified the notification handler to add this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(arr == "dist_begin"):
+  temps = []
+  dist1 = []
+  dist2 = []
+  times = []
+  distState = 1
+  print("Started reading dist")
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if('T' in arr and 'D' in arr):
+  times.append(int(arr.split('|')[0][2:]))
+  dist1.append(float(arr.split('|')[1][2:]))
+  dist2.append(float(arr.split('|')[2][2:]))
+</code></pre></div></div>
+
+<p>With these modifications, I could get both sensors’ data with one command like GET_TEMP_5s_RAPID but instead was
+GET_DIST_5s_RAPID this allowed me to grab and display the data you see in the rest of the graphs of the report.</p>
+
+<p><img src="../images/BluetoothTOF.png" alt="Italian Trulli" width="50%" /></p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Liam Kain - ECE-4160</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Liam Kain - ECE-4160</li><li><a class="u-email" href="mailto:ljk74@cornell.edu">ljk74@cornell.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/lk1007"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lk1007</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is the documentation for what I have completed in ECE-4160</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
