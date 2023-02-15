@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 2 | Liam Kain - ECE-4160</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Lab 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160" />
+<meta property="og:description" content="This is the documentation for what I have completed in ECE-4160" />
+<link rel="canonical" href="http://localhost:4000/Lab_2/" />
+<meta property="og:url" content="http://localhost:4000/Lab_2/" />
+<meta property="og:site_name" content="Liam Kain - ECE-4160" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"This is the documentation for what I have completed in ECE-4160","headline":"Lab 2","url":"http://localhost:4000/Lab_2/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Liam Kain - ECE-4160" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Liam Kain - ECE-4160</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Lab_1/">Lab 1</a><a class="page-link" href="/Lab_2/">Lab 2</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Lab 2</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Lab 2 was an introduction to bluetooth communication with the artemis board. It required both modifying .ino files controlling the arduino as well as modifying python code allowing a host computer to communicate with the artemis over bluetooth.</p>
+<h2 id="prelab">Prelab</h2>
+<h3 id="setup">Setup</h3>
+<p>To setup the lab, first a python virtual environment had to be installed to isolate my python packages. Then, I had to activate the virtual environment and install necessary packages to run the python code. Then, I had to download and extract the codebase into the adjacent directory. Then, I had to install ArduinoBLE and the prelab was finished.</p>
+
+<p>As can see by this iamge, when the code is loaded on the artemis, the MAC address can be seen on the serial console.</p>
+
+<p><img src="../images/BLE_MAC.png" alt="Italian Trulli" width="50%" /></p>
+
+<h3 id="codebase">Codebase</h3>
+<p>In the codebase, the operation works by sending BLE_Characteristic values, in particualr for this lab, strings. A uuid and MAC address are used to send these characteristic values between the artemis and host computer. On both sides are various functions to process these characterstic values and pack and unpack these characteristic to more easy to use values. The python code comes with commands to send to the artemis and the artemis code can process these commands on its end and send values back in response to the command through resending BLE_Characteristic strings.</p>
+<h2 id="lab-tasks">Lab Tasks</h2>
+<h3 id="configurations">Configurations:</h3>
+<p>First, the “artemis_address” variable had to be changed to the MAC address of the artemis and the “ble_service” variable had to be changed to a generated UUID as seen in this connections.yaml code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>artemis_address: 'c0:83:b1:6a:9a:3c'
+
+ble_service: '1d7c6224-376f-4e20-a225-3c74a3e71e2e'
+
+characteristics:
+  TX_CMD_STRING: '9750f60b-9c9c-4158-b620-02ec9521cd99'
+
+  RX_FLOAT: '27616294-3063-4ecc-b60b-3470ddef2938'
+  RX_STRING: 'f235a225-6735-4d73-94cb-ee5dfce9ba83'
+</code></pre></div></div>
+
+<p>and the RX_STRING ID can be seen matching the TX_STRING value in this artemis code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define BLE_UUID_TX_STRING "f235a225-6735-4d73-94cb-ee5dfce9ba83"
+</code></pre></div></div>
+
+<p>The AT_LEAST_MAC_OS_12 boolean was also changed shown by this code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>async def _get_ble_device(self, timeout=10.0):
+        if True:
+            device = None
+            async with BleakScanner(service_uuids=[self.service_uuid]) as scanner:
+                start_time = time.time()
+                while (time.time() - start_time) &lt;= timeout:
+                    await asyncio.sleep(2)
+                    if scanner.discovered_devices:
+                        device = scanner.discovered_devices[0]
+                        break
+</code></pre></div></div>
+
+<h3 id="demoipynb">demo.ipynb:</h3>
+<p>As can be seen by the video, the demo was completed with no issues</p>
+<video width="100%" controls="" muted="">
+  <source src="../videos/Lab_2_demo.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<h3 id="send-echo-command">Send Echo Command</h3>
+<p>The ECHO command is like PING in that it can ensure data is being sent correctly to the artemis. To create this, the ECHO command had to be added to the CommandTypes enum on the artemis code as well as the cmd_types.py file. Then in the artemis code, a case statement had to be added to send a characteristic string with “Echo” written in it. Then, in this picture, the ECHO command is sent to the artemis with the send_command function, and the receive_string command is used to receive the response from the artemis.</p>
+
+<p><img src="../images/Echo.png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="get-time-command">Get Time Command</h3>
+<p>To make the GET_TIME_MILLIS command, the setup was done just as ECHO but instead of appending the received command to the characteristic string the operation was this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.append("T:");
+tx_estring_value.append((int)millis());
+</code></pre></div></div>
+
+<p>when executed the resuls are shown here.</p>
+
+<p><img src="../images/time.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As explained in the notification handler later, the list contains the time extracted from the command.</p>
+
+<h3 id="notification-handler">Notification Handler</h3>
+<p>As seen in the previous command, a notification handler was made with start_notify, the function used for this notification handler used a state machine and two lists, temps and times. If a begin or end message was sent, the state machine would set the tempState to 1 so that the next messages would be parsed, split between the temperature and its associated time and then stop parsing messages this way when an end message is received. The handler also has an exception for the get time command to only insert the time into the array. This allows modularity as only a start and message are needed to define when to receive certain messages, so various commands and speeds can be added to this handler. With times and temperatures stored in lists, its very easy to analyze the data afterwards.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tempState = 0
+temps = []
+times = []
+def getNotif(uuid,arr):
+    global tempState
+    global times
+    global temps
+    arr = str(arr,'UTF-8')
+    if(arr == "temp_begin"):
+        temps = []
+        times = []
+        tempState = 1
+        print("Started reading temp")
+    elif(arr == "temp_end"):
+        tempState = 0
+        print("done reading temp")
+    elif(tempState &gt; 0): 
+        if('T' in arr and 'C' in arr):
+            times.append(int(arr.split('|')[0][2:]))
+            temps.append(float(arr.split('|')[1][2:]))
+    elif('T' in arr):
+        times.append(int(arr[2:]))
+    else:
+        print("colliding messages")
+</code></pre></div></div>
+
+<h3 id="get-temperature-command">Get Temperature Command</h3>
+
+<p>To create GET_TEMP_5s the same command adding procedure was done, this time doing,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.clear();
+tx_estring_value.append("T:");
+tx_estring_value.append((int)millis());
+tx_estring_value.append("|");
+tx_estring_value.append("C:");
+tx_estring_value.append(getTempDegC());
+</code></pre></div></div>
+
+<p>Doing this 5 times and then sending the characteristic string.</p>
+
+<p>The notification handler parses this message extracting time from what comes after ‘T:’ and temperature from after ‘C:’ and inserts them into the temps and times lists. Using numpy to plot this data shows this result.</p>
+
+<p><img src="../images/Temp_5s.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As can be seen, 5 points were recorded each a second apart showing temperature data.</p>
+
+<p>For GET_TEMP_5s_RAPID, the same procedure was done, but instead of sending in a loop defined by</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i = 0; i &lt; 5; i++){
+  delay(1000);
+</code></pre></div></div>
+
+<p>the loop was instead defined byo</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>currTime = (int)millis();
+while((int)millis() - currTime &lt; 5000){
+</code></pre></div></div>
+
+<p>therefore continuously sending data instead of waiting every second. This resulted in this data.</p>
+
+<p><img src="../images/Temp_5s_RAPID.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As can be seen, 219 points were recorded showing a much more precise measurement of the temperature over 5 seconds</p>
+
+<p>Both of these methods required the actions</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.clear();
+tx_estring_value.append("temp_begin");
+tx_characteristic_string.writeValue(tx_estring_value.c_str()); 
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.clear();
+tx_estring_value.append("temp_end");
+tx_characteristic_string.writeValue(tx_estring_value.c_str()); 
+</code></pre></div></div>
+
+<p>to make the notification handler start reading data</p>
+
+<h3 id="limitations">Limitations</h3>
+<p>if the artemis has 384kB of RAM, this value can store a large amount of data as 5s of 16-bit values taken at 150Hz is
+\(5s * \frac{150values}{1s} * \frac{16bit}{1value} * \frac{1B}{8bit} * \frac{1kB}{1000B} = 1.5kB\)
+The limiting factor could be a large frequency such as
+\(384kB * \frac{1000B}{1kB} * \frac{8bits}{1B} * \frac{1value}{16bits} * \frac{1}{5s} =  38400bvalues/s = 38400Hz\)</p>
+
+<p>which happens to be a standard baud rate for UART communication, so sending 16-bit values continuously over UART could stress the artemis’s ram.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Liam Kain - ECE-4160</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Liam Kain - ECE-4160</li><li><a class="u-email" href="mailto:ljk74@cornell.edu">ljk74@cornell.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/lk1007"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lk1007</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is the documentation for what I have completed in ECE-4160</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
