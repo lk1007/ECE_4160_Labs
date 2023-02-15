@@ -43,7 +43,8 @@
   </header>
 
   <div class="post-content">
-    <h2 id="prelab">Prelab</h2>
+    <p>In Lab 3, the Time of Flight sensors were analyzed. The quality of their data and how they could be combined together with the artemis’s existing capabilites was analyzed.</p>
+<h2 id="prelab">Prelab</h2>
 
 <p>For the prelab, various things had to be planned out around the TOF sensors</p>
 
@@ -55,31 +56,33 @@
 
 <p>Here is a sketch of the final wiring that needed to be done on the TOF sensors</p>
 
-<p><img src="../images/TOF_layout.jpg" alt="Italian Trulli" width="50%" /></p>
+<p><img src="../images/TOF_layout.jpg" alt="Italian Trulli" width="100%" /></p>
 
 <h2 id="lab-tasks">Lab Tasks</h2>
 <h1 id="assembly">Assembly</h1>
-<p>First, both of the TOF sensors were attached to the breakout board, though for now, only one sensor was used.</p>
+<p>First, both of the TOF sensors were attached to the breakout board, though for now, only one sensor was used. The sensors both have their xshut pins soldered to the artemis’s gpio pins as explained in the prelab.</p>
 
-<p><img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="50%" /></p>
+<p><img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="100%" /></p>
 
 <h1 id="i2c">I2C</h1>
 <p>By running the wire_i2c example program, the artemis could scan the I2C addresses connected to it resulting in this output.</p>
 
-<p><img src="../images/I2C_Scan.png" alt="Italian Trulli" width="50%" /></p>
+<p><img src="../images/I2C_Scan.png" alt="Italian Trulli" width="100%" /></p>
 
 <p>As can be seen, there are two I2C addresses present. This is because looking at the picture, the IMU is connected, so that address shows up as well, but the 0x29
 address for the TOF sensor can be seen.</p>
 
 <h1 id="distance-measurements">Distance Measurements</h1>
-<p>Since the robot is fast, the obstacles the robot it’s expecting will need to be far away so that the robot can adjust in time. Because of that, I chose the “long”
-mode. With this mode, I collected various data points over distances by marking distances along a wall and moving the TOF sensor along it facing an object on the other end. I was therefore able to collect 100s of distance measurements from the TOF sensor using the bluetooth modifications I describe later and I was able to produce this graph.</p>
+<p>Since the robot is fast, the robot will need to be able to measure obstacles far away to appropriately plan for it. Therefore, the mode I chose was “long”. Therefore, I needed to measure the reliability of the sensor at short range as those are not the ranges the mode is optimized for
+I changed the mode using VL53L1X_SetDistanceMode(2) in the Vl53L1X_simpletest example code. With this mode, I collected various data points over distances by marking distances along a wall and moving the TOF sensor along it facing an object on the other end. I was therefore able to collect 100s of distance measurements from the TOF sensor using the bluetooth modifications I describe later and I was able to produce this graph.</p>
 
-<p><img src="../images/Distance Setting data.png" alt="Italian Trulli" width="50%" /></p>
+<p><img src="../images/Distance Setting data.png" alt="Italian Trulli" width="100%" /></p>
 
-<p>As can be seen from the graph. The data is generally consistent and linear. The stdev bars that I created barely showed up until the longer distances were measured.</p>
+<p>As can be seen from the graph, The data is generally consistent and linear. The stdev bars that I created barely showed up until the longer distances were measured, so the TOF sensor reliable measures distances and stays fairly accurate until larger distances</p>
 
-<p>To make the TOF sensors work in parallel, I modified the artemis code according to the prelab, so this was done</p>
+<p>By using the millis() function at the end of measuring and at the beginning of measuring after the sensor and found that the time between distance measurements was about 91ms.</p>
+<h1 id="2-tof-sensors">2 TOF sensors</h1>
+<p>To make 2 TOF sensors work in parallel, I modified the artemis code according to the prelab, so this modification was done to set one of the TOF sensors to a new I2C address</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalWrite(XSHUT_PIN_1, LOW);
     Wire.begin();
@@ -99,17 +102,19 @@ mode. With this mode, I collected various data points over distances by marking 
         while (1)
             delay(10);
     }
-    digitalWrite(XSHUT_PIN_2, HIGH); With this modification to the example TOF code as able to duplicate the example code using the vl53_2 and vl53_1 objects instead of one vl53 object. With this, I was able to run the sensors in parallel creating this output.
+    digitalWrite(XSHUT_PIN_2, HIGH);
 </code></pre></div></div>
 
-<p><img src="../images/2_TOF_monitor.png" alt="Italian Trulli" width="50%" /></p>
+<p>With this modification to the example TOF code as able to duplicate the example code using the vl53_2 and vl53_1 objects instead of one vl53 object. With this, I was able to run the sensors in parallel creating this output.</p>
 
-<p>The alternating and different data based on their positions, it can be seen the sensors are being polled in parallel.</p>
+<p><img src="../images/2_TOF_monitor.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>With the alternating ID’s and different data between them, it can be seen the sensors are being polled in parallel.</p>
 
 <h1 id="tof-sensor-speed">Tof sensor speed</h1>
 <p>Since the speed of the sensors are a limiting factor. The sensors have to be read in an interrupt style fashion. To do this, I used the example code when testing the TOF sensors, but outside of the if statement, put a print of millis() resulting in data like this</p>
 
-<p><img src="../images/timing.png" alt="Italian Trulli" width="50%" /></p>
+<p><img src="../images/timing.png" alt="Italian Trulli" width="100%" /></p>
 
 <p>the code that did this is</p>
 
@@ -132,10 +137,10 @@ vl53_2.clearInterrupt();
 Serial.println(millis());
 </code></pre></div></div>
 
-<p>As can be seen by the output, when the sensors are not collecting data, the loop takes around 3ms, but if the sensors are collecting data, the loop takes around 12ms, a much longer time, so by reducing the amount of times the sensors are polled, a large number of calculations can be made.</p>
+<p>As can be seen by the output, when the sensors are not collecting data, the loop takes around 3ms, but if the sensors are collecting data, the loop takes around 12ms, a much longer time, so attaining the sensor data is the limiting factor and by reducing the amount of times the sensors are polled, a large number of calculations can be made.</p>
 
 <h1 id="time-v-distance">Time v Distance</h1>
-<p>Finally, I had to modify the Lab 2 code to use this new distance data. To do this, I first used the standard procedure of adding a bluetooth command. Then, I inserted the interrupt style distance measuring from the last section into the handle_command() function but instead of printing the distance, I stored them in variables distance_1 and distance_2. I then created a characteristic string like this</p>
+<p>Finally, I had to modify the Lab 2 code to use this new distance data since distance data is very important for debugging the state of the TOF sensors. To do this, I first used the standard procedure of adding a bluetooth command. Then, I inserted the interrupt style distance measuring from the last section into the handle_command() function but instead of printing the distance, I stored them in variables distance_1 and distance_2. I then created a characteristic string like this</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.append("T:");
 tx_estring_value.append((int)millis());
@@ -169,7 +174,9 @@ tx_estring_value.append(distance_2);
 <p>With these modifications, I could get both sensors’ data with one command like GET_TEMP_5s_RAPID but instead was
 GET_DIST_5s_RAPID this allowed me to grab and display the data you see in the rest of the graphs of the report.</p>
 
-<p><img src="../images/BluetoothTOF.png" alt="Italian Trulli" width="50%" /></p>
+<p>Displaying the data fully gives graphs like this.</p>
+
+<p><img src="../images/BluetoothTOF.png" alt="Italian Trulli" width="100%" /></p>
 
   </div>
 

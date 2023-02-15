@@ -3,6 +3,7 @@ layout: page
 title: Lab 3
 permalink: /Lab_3/
 ---
+In Lab 3, the Time of Flight sensors were analyzed. The quality of their data and how they could be combined together with the artemis's existing capabilites was analyzed.
 ## Prelab
 
 For the prelab, various things had to be planned out around the TOF sensors
@@ -15,31 +16,33 @@ Since the robot has to detect distances from the side and the front, the sensors
 
 Here is a sketch of the final wiring that needed to be done on the TOF sensors
 
-<img src="../images/TOF_layout.jpg" alt="Italian Trulli" width="50%">
+<img src="../images/TOF_layout.jpg" alt="Italian Trulli" width="100%">
 
 ## Lab Tasks
 # Assembly
-First, both of the TOF sensors were attached to the breakout board, though for now, only one sensor was used.
+First, both of the TOF sensors were attached to the breakout board, though for now, only one sensor was used. The sensors both have their xshut pins soldered to the artemis's gpio pins as explained in the prelab.
 
-<img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="50%">
+<img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="100%">
 
 # I2C
 By running the wire_i2c example program, the artemis could scan the I2C addresses connected to it resulting in this output.
 
-<img src="../images/I2C_Scan.png" alt="Italian Trulli" width="50%">
+<img src="../images/I2C_Scan.png" alt="Italian Trulli" width="100%">
 
 As can be seen, there are two I2C addresses present. This is because looking at the picture, the IMU is connected, so that address shows up as well, but the 0x29
 address for the TOF sensor can be seen.
 
 # Distance Measurements
-Since the robot is fast, the obstacles the robot it's expecting will need to be far away so that the robot can adjust in time. Because of that, I chose the "long"
-mode. With this mode, I collected various data points over distances by marking distances along a wall and moving the TOF sensor along it facing an object on the other end. I was therefore able to collect 100s of distance measurements from the TOF sensor using the bluetooth modifications I describe later and I was able to produce this graph.
+Since the robot is fast, the robot will need to be able to measure obstacles far away to appropriately plan for it. Therefore, the mode I chose was "long". Therefore, I needed to measure the reliability of the sensor at short range as those are not the ranges the mode is optimized for
+I changed the mode using VL53L1X_SetDistanceMode(2) in the Vl53L1X_simpletest example code. With this mode, I collected various data points over distances by marking distances along a wall and moving the TOF sensor along it facing an object on the other end. I was therefore able to collect 100s of distance measurements from the TOF sensor using the bluetooth modifications I describe later and I was able to produce this graph.
 
-<img src="../images/Distance Setting data.png" alt="Italian Trulli" width="50%">
+<img src="../images/Distance Setting data.png" alt="Italian Trulli" width="100%">
 
-As can be seen from the graph. The data is generally consistent and linear. The stdev bars that I created barely showed up until the longer distances were measured.
+As can be seen from the graph, The data is generally consistent and linear. The stdev bars that I created barely showed up until the longer distances were measured, so the TOF sensor reliable measures distances and stays fairly accurate until larger distances
 
-To make the TOF sensors work in parallel, I modified the artemis code according to the prelab, so this was done
+By using the millis() function at the end of measuring and at the beginning of measuring after the sensor and found that the time between distance measurements was about 91ms.
+# 2 TOF sensors
+To make 2 TOF sensors work in parallel, I modified the artemis code according to the prelab, so this modification was done to set one of the TOF sensors to a new I2C address
 
     digitalWrite(XSHUT_PIN_1, LOW);
         Wire.begin();
@@ -60,16 +63,17 @@ To make the TOF sensors work in parallel, I modified the artemis code according 
                 delay(10);
         }
         digitalWrite(XSHUT_PIN_2, HIGH);
+
 With this modification to the example TOF code as able to duplicate the example code using the vl53_2 and vl53_1 objects instead of one vl53 object. With this, I was able to run the sensors in parallel creating this output.
 
-<img src="../images/2_TOF_monitor.png" alt="Italian Trulli" width="50%">
+<img src="../images/2_TOF_monitor.png" alt="Italian Trulli" width="100%">
 
-The alternating and different data based on their positions, it can be seen the sensors are being polled in parallel.
+With the alternating ID's and different data between them, it can be seen the sensors are being polled in parallel.
 
 # Tof sensor speed
 Since the speed of the sensors are a limiting factor. The sensors have to be read in an interrupt style fashion. To do this, I used the example code when testing the TOF sensors, but outside of the if statement, put a print of millis() resulting in data like this
 
-<img src="../images/timing.png" alt="Italian Trulli" width="50%">
+<img src="../images/timing.png" alt="Italian Trulli" width="100%">
 
 the code that did this is
 
@@ -91,10 +95,10 @@ the code that did this is
     }
     Serial.println(millis());
 
-As can be seen by the output, when the sensors are not collecting data, the loop takes around 3ms, but if the sensors are collecting data, the loop takes around 12ms, a much longer time, so by reducing the amount of times the sensors are polled, a large number of calculations can be made.
+As can be seen by the output, when the sensors are not collecting data, the loop takes around 3ms, but if the sensors are collecting data, the loop takes around 12ms, a much longer time, so attaining the sensor data is the limiting factor and by reducing the amount of times the sensors are polled, a large number of calculations can be made.
 
 # Time v Distance
-Finally, I had to modify the Lab 2 code to use this new distance data. To do this, I first used the standard procedure of adding a bluetooth command. Then, I inserted the interrupt style distance measuring from the last section into the handle_command() function but instead of printing the distance, I stored them in variables distance_1 and distance_2. I then created a characteristic string like this
+Finally, I had to modify the Lab 2 code to use this new distance data since distance data is very important for debugging the state of the TOF sensors. To do this, I first used the standard procedure of adding a bluetooth command. Then, I inserted the interrupt style distance measuring from the last section into the handle_command() function but instead of printing the distance, I stored them in variables distance_1 and distance_2. I then created a characteristic string like this
 
     tx_estring_value.append("T:");
     tx_estring_value.append((int)millis());
@@ -125,4 +129,6 @@ and
 With these modifications, I could get both sensors' data with one command like GET_TEMP_5s_RAPID but instead was
 GET_DIST_5s_RAPID this allowed me to grab and display the data you see in the rest of the graphs of the report.
 
-<img src="../images/BluetoothTOF.png" alt="Italian Trulli" width="50%">
+Displaying the data fully gives graphs like this.
+
+<img src="../images/BluetoothTOF.png" alt="Italian Trulli" width="100%">

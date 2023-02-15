@@ -58,12 +58,12 @@ The ECHO command is like PING in that it can ensure data is being sent correctly
 <img src="../images/Echo.png" alt="Italian Trulli" width="100%">
 
 ### Get Time Command
-To make the GET_TIME_MILLIS command, the setup was done just as ECHO but instead of appending the received command to the characteristic string the operation was this
+To get important time data showing how long the robot has been operating the command GET_TIME_MILLIS was created. the setup was done just as ECHO but instead of appending the received command to the characteristic string the operation was this.
 
     tx_estring_value.append("T:");
     tx_estring_value.append((int)millis());
 
-when executed the resuls are shown here.
+when executed the results are shown here.
 
 <img src="../images/time.png" alt="Italian Trulli" width="100%">
 
@@ -99,7 +99,7 @@ As seen in the previous command, a notification handler was made with start_noti
 
 ### Get Temperature Command
 
-To create GET_TEMP_5s the same command adding procedure was done, this time doing,
+To get important temperature data and to be able to compare against time, I had to create GET_TEMP_5s. The same command adding procedure was done to add this command to the existing code, this time doing,
 
     tx_estring_value.clear();
     tx_estring_value.append("T:");
@@ -108,7 +108,7 @@ To create GET_TEMP_5s the same command adding procedure was done, this time doin
     tx_estring_value.append("C:");
     tx_estring_value.append(getTempDegC());
 
-Doing this 5 times and then sending the characteristic string.
+Doing this in a for loop 5 times and then sending the characteristic string.
 
 The notification handler parses this message extracting time from what comes after 'T:' and temperature from after 'C:' and inserts them into the temps and times lists. Using numpy to plot this data shows this result.
 
@@ -148,8 +148,10 @@ to make the notification handler start reading data
 
 ### Limitations
 if the artemis has 384kB of RAM, this value can store a large amount of data as 5s of 16-bit values taken at 150Hz is
-$$ 5s * \frac{150values}{1s} * \frac{16bit}{1value} * \frac{1B}{8bit} * \frac{1kB}{1000B} = 1.5kB $$
+<img src="../images/math1.png" alt="Italian Trulli" width="100%">
 The limiting factor could be a large frequency such as
-$$ 384kB * \frac{1000B}{1kB} * \frac{8bits}{1B} * \frac{1value}{16bits} * \frac{1}{5s} =  38400bvalues/s = 38400Hz $$
+<img src="../images/math2.png" alt="Italian Trulli" width="100%">
 
 which happens to be a standard baud rate for UART communication, so sending 16-bit values continuously over UART could stress the artemis's ram.
+### References
+I talked with Ignacio Romo about how to parse the string in the notification handler using the str(,"UTF-8) function

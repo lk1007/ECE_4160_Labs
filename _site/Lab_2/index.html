@@ -101,13 +101,13 @@ characteristics:
 <p><img src="../images/Echo.png" alt="Italian Trulli" width="100%" /></p>
 
 <h3 id="get-time-command">Get Time Command</h3>
-<p>To make the GET_TIME_MILLIS command, the setup was done just as ECHO but instead of appending the received command to the characteristic string the operation was this</p>
+<p>To get important time data showing how long the robot has been operating the command GET_TIME_MILLIS was created. the setup was done just as ECHO but instead of appending the received command to the characteristic string the operation was this.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.append("T:");
 tx_estring_value.append((int)millis());
 </code></pre></div></div>
 
-<p>when executed the resuls are shown here.</p>
+<p>when executed the results are shown here.</p>
 
 <p><img src="../images/time.png" alt="Italian Trulli" width="100%" /></p>
 
@@ -144,7 +144,7 @@ def getNotif(uuid,arr):
 
 <h3 id="get-temperature-command">Get Temperature Command</h3>
 
-<p>To create GET_TEMP_5s the same command adding procedure was done, this time doing,</p>
+<p>To get important temperature data and to be able to compare against time, I had to create GET_TEMP_5s. The same command adding procedure was done to add this command to the existing code, this time doing,</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tx_estring_value.clear();
 tx_estring_value.append("T:");
@@ -154,7 +154,7 @@ tx_estring_value.append("C:");
 tx_estring_value.append(getTempDegC());
 </code></pre></div></div>
 
-<p>Doing this 5 times and then sending the characteristic string.</p>
+<p>Doing this in a for loop 5 times and then sending the characteristic string.</p>
 
 <p>The notification handler parses this message extracting time from what comes after ‘T:’ and temperature from after ‘C:’ and inserts them into the temps and times lists. Using numpy to plot this data shows this result.</p>
 
@@ -198,11 +198,13 @@ tx_characteristic_string.writeValue(tx_estring_value.c_str());
 
 <h3 id="limitations">Limitations</h3>
 <p>if the artemis has 384kB of RAM, this value can store a large amount of data as 5s of 16-bit values taken at 150Hz is
-\(5s * \frac{150values}{1s} * \frac{16bit}{1value} * \frac{1B}{8bit} * \frac{1kB}{1000B} = 1.5kB\)
+<img src="../images/math1.png" alt="Italian Trulli" width="100%" />
 The limiting factor could be a large frequency such as
-\(384kB * \frac{1000B}{1kB} * \frac{8bits}{1B} * \frac{1value}{16bits} * \frac{1}{5s} =  38400bvalues/s = 38400Hz\)</p>
+<img src="../images/math2.png" alt="Italian Trulli" width="100%" /></p>
 
 <p>which happens to be a standard baud rate for UART communication, so sending 16-bit values continuously over UART could stress the artemis’s ram.</p>
+<h3 id="references">References</h3>
+<p>I talked with Ignacio Romo about how to parse the string in the notification handler using the str(,”UTF-8) function</p>
 
   </div>
 
