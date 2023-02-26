@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Lab 4 | Liam Kain - ECE-4160</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Lab 4" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160" />
+<meta property="og:description" content="This is the documentation for what I have completed in ECE-4160" />
+<link rel="canonical" href="http://localhost:4000/Lab_4/" />
+<meta property="og:url" content="http://localhost:4000/Lab_4/" />
+<meta property="og:site_name" content="Liam Kain - ECE-4160" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab 4" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"This is the documentation for what I have completed in ECE-4160","headline":"Lab 4","url":"http://localhost:4000/Lab_4/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Liam Kain - ECE-4160" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Liam Kain - ECE-4160</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Lab_1/">Lab 1</a><a class="page-link" href="/Lab_2/">Lab 2</a><a class="page-link" href="/Lab_3/">Lab 3</a><a class="page-link" href="/Lab_4/">Lab 4</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Lab 4</h1>
+  </header>
+
+  <div class="post-content">
+    <h1 id="lab-tasks">Lab Tasks</h1>
+<h1 id="set-up-the-imu">Set up the IMU</h1>
+
+<h2 id="picture-of-your-artemis-imu-connections">Picture of your Artemis IMU connections</h2>
+
+<p><img src="../images/TOF_Breakout.jpg" alt="Italian Trulli" width="100%" /></p>
+
+<h2 id="show-that-the-imu-example-code-works">Show that the IMU example code works</h2>
+
+<video width="100%" controls="">
+  <source src="../videos/IMU_DEMO_VID.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<h2 id="ad0_val-definition-discussion">AD0_VAL definition discussion</h2>
+<p>The AD0_VAL represents the last bit of the i2c address of the IMU. This value is only supposed to be 0 if the ADR jumper is closed, the value is 0. The ADR jumper is not closed, so the value is 0.</p>
+<h2 id="acceleration-and-gyroscope-data-discussion-pictures-recommended">Acceleration and gyroscope data discussion (pictures recommended)</h2>
+
+<h1 id="accelerometer">Accelerometer</h1>
+<h2 id="image-of-output-at--90-0-90-degrees-for-pitch-and-roll-include-equations">Image of output at {-90, 0, 90} degrees for pitch and roll (include equations)</h2>
+<p>From class,</p>
+
+<p>\(Roll_{accelerometer} = atan(a_x,a_z)\)
+<br />
+\(Pitch_{accelerometer} = atan(a_y,a_z)\)
+<br />
+, so using IMU.accX, IMU.accY, IMU.accZ as x y and z respectively, the pitch and roll could be calculated yielding these results.</p>
+
+<p><img src="../images/0_roll.jpg" alt="Italian Trulli" width="100%" />
+<img src="../images/90_roll.jpg" alt="Italian Trulli" width="100%" />
+<img src="../images/-90_roll.jpg" alt="Italian Trulli" width="100%" />
+<img src="../images/90_pitch.jpg" alt="Italian Trulli" width="100%" />
+<img src="../images/-90_pitch.jpg" alt="Italian Trulli" width="100%" /></p>
+
+<h2 id="accelerometer-accuracy-discussion">Accelerometer accuracy discussion</h2>
+<h2 id="noise-in-the-frequency-spectrum-analysis">Noise in the frequency spectrum analysis</h2>
+
+<h3 id="include-graphs-for-your-fourier-transform">Include graphs for your fourier transform</h3>
+<h3 id="discuss-the-results">Discuss the results</h3>
+
+<h1 id="gyroscope">Gyroscope</h1>
+
+<h2 id="include-documentation-for-pitch-roll-and-yaw-with-images-of-the-results-of-different-imu-positions">Include documentation for pitch, roll, and yaw with images of the results of different IMU positions</h2>
+<h2 id="demonstrate-the-accuracy-and-range-of-the-complementary-filter-and-discuss-any-design-choices">Demonstrate the accuracy and range of the complementary filter, and discuss any design choices</h2>
+
+<h1 id="sample-data">Sample Data</h1>
+
+<h2 id="speed-of-sampling-discussion">Speed of sampling discussion</h2>
+<h2 id="demonstrate-collected-and-stored-time-stamped-imu-data-in-arrays">Demonstrate collected and stored time-stamped IMU data in arrays</h2>
+<h2 id="demonstrate-5s-of-tof-and-imu-data-sent-over-bluetooth">Demonstrate 5s of ToF and IMU data sent over Bluetooth</h2>
+
+<h1 id="cut-the-coord">Cut the Coord</h1>
+
+<h2 id="discussion-on-battery-distinction">Discussion on battery distinction</h2>
+<h2 id="picture-of-your-artemis-connected-to-the-650mah-battery">Picture of your Artemis connected to the 650mAh battery</h2>
+
+<h1 id="record-a-stunt">Record a Stunt</h1>
+
+<h2 id="include-a-video-or-some-videos-of-you-playing-with-the-car-and-discuss-your-observations">Include a video (or some videos) of you playing with the car and discuss your observations</h2>
+
+<h3 id="without-artemis">Without Artemis</h3>
+<h3 id="with-artemis-and-plot-data-sent-over-bluetooth">With Artemis, and plot data sent over Bluetooth</h3>
+
+
+  </div>
+
+</article>
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Liam Kain - ECE-4160</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Liam Kain - ECE-4160</li><li><a class="u-email" href="mailto:ljk74@cornell.edu">ljk74@cornell.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/lk1007"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lk1007</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is the documentation for what I have completed in ECE-4160</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
