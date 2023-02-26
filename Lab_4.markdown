@@ -39,7 +39,7 @@ $$ Pitch_{accelerometer} = atan(a_y,a_z)$$
     pitch_a = atan2(myICM.accY(), myICM.accZ()) * 180 / M_PI;
     roll_a = atan2(myICM.accX(), myICM.accZ()) * 180 / M_PI;
 
-yielding these results.
+yielding these results as I placed the IMU at various positions in order to make the roll or pitch go to a specific angle. The y-axis is in degrees.
 
 IMU at 
 $$\text{0}^\circ$$ roll and pitch
@@ -182,6 +182,61 @@ To integrate the IMU with the bluetooth code. The same procedure as explained in
     tx_estring_value.append("D2:");
     tx_estring_value.append(dist2Buff[i]);
 
+and the data is collected like this
+
+        cnt = 0;
+        currTime = (int)millis();
+        Serial.println("Allocated arrays");
+        while ((int)millis() - currTime < 5000)
+            {
+                check = true;
+    #if TOF1 == 1
+                check = check && vl53_1.dataReady();
+    #endif
+    #if TOF2 == 1
+                check = check && vl53_2.dataReady();
+    #endif
+                if (myICM.dataReady() && check && cnt < BUF_SIZE)
+                {
+                    myICM.getAGMT();
+                    // The values are only updated when you call 'getAGMT'
+                    // printRawAGMT( myICM.agmt );     // Uncomment this to see the raw values, taken directly from the agmt structure
+                    setAGMT(&myICM); // This function takes into account the scale settings from when the measurement was made to calculate the values with units
+                    // new measurement for the taking!
+                    timeBuff[cnt] = (int)millis();
+                    yawBuff[cnt] = yaw_g;
+                    rollBuff[cnt] = roll_c;
+                    pitchBuff[cnt] = pitch_c;
+    #if TOF1 == 1
+                    dist1Buff[cnt] = vl53_1.distance();
+                    if (distance_1 == -1)
+                    {
+                        // something went wrong!
+                        Serial.print(F("Couldn't get distance: "));
+                        Serial.println(vl53_1.vl_status);
+                        return;
+                    }
+                    // data is read out, time for another reading!
+                    vl53_1.clearInterrupt();
+    #endif
+                    // new measurement for the taking!
+
+    #if TOF2 == 1
+                    dist2Buff[cnt] = vl53_2.distance();
+                    if (distance_2 == -1)
+                    {
+                        // something went wrong!
+                        Serial.print(F("Couldn't get distance: "));
+                        Serial.println(vl53_2.vl_status);
+                        return;
+                    }
+                    // data is read out, time for another reading!
+                    vl53_2.clearInterrupt();
+    #endif
+                    cnt++;
+                }
+            }
+
 Hear you can see the data is in buffers rather than just a value. This is because of the speed of sensor data collection. To produce the fastest sampling rate, collection was completed before sending the array, so a buffer was made for each value and the values were collected and then sent to the python code index by index.
 The data was stored in seperate arrays rather than one large array as if it's later decided to capture IMU data at a different time than TOF data, another time array can be added. Another issue is also the types of the values. Distance values are floats, but IMU values are int16_t, so an array with a constant type would be hard to manage. When I first allocated the arrays, I allocated 1000 values for each array, but with some values as floats and others as int16_t, these 4 byte values were too large and I ran into a stack overflow. 100 values for each array sufficed as the loop could only capture 80 values and this was only about 19200Kb, much less than the memory of the artemis as opposed to the 192000Kb if a 1000 length array were used. With the 384kB internal data, this is 3840s of data if all arrays were floats at a 25Hz sample rate, so the artemis has plenty of memory for data collection.
 
@@ -229,3 +284,5 @@ You can see the data from the stunt in the video, but these graphs make it more 
 As can be seen from this graph, the roll and pitch oscillate slightly as the slightly off horizontal imu rotates around the z axis. The yaw from the gyroscope though offset can be seen decreasing and increasing as the car rotates around its axis.
 <img src="../images/TOF_STUNT.png" alt="Italian Trulli" width="100%">
 Unfortunately, one of the TOF sensors didn't show in the graph, but the other can be seen measuring about .1m which is facing towards the ground most likely as the side sensor points towards the ground. Near the end of the video, the TOF sensor falls onto the ground thus bringing the distance measurement close to 0.
+
+The TOF sensors have various errors with weak pin connections and such, so I made the final modification of macros to setup or collect data from the TOF sensors only if the macros TOF1, and TOF2 were defined as 1.
