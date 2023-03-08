@@ -48,7 +48,6 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
 }
 video {
   display: block;
@@ -61,7 +60,7 @@ video {
 <h2 id="prelab">Prelab</h2>
 <h3 id="wiring">Wiring</h3>
 
-<p>In planning the wiring for this lab, a few things were taken into account. To get input to the motor drivers, pwm pins had to be used on the artemis. Looking at schematic for the board, available pins for this task were pins 4,5,14,15. To attach the motor drivers, the inputs and outputs of the motor were driven in parallel since only two inputs were used, but 4 are given, so the driver’s inputs and outputs had to be soldered together. Another important question was how to connect power as there are two motor drivers to drive, but only two leads from the battery. The solution to this was to run a wire through VCC of one motor driver, solder the wire to the pad, and then solder a small wire from the other driver’s VCC pad to this wire. The same was done for ground.
+<p>In planning the wiring for this lab, a few things were taken into account. To get input to the motor drivers, pwm pins had to be used on the artemis. Looking at the schematic for the board, available pins for this task were pins 4,5,14,15. To attach the motor drivers, the inputs and outputs of the motor were driven in parallel since only two inputs were used, but 4 are given, so the driver’s inputs and outputs had to be soldered together. Another important question was how to connect power as there are two motor drivers to drive, but only two leads from the battery. The solution to this was to run a wire through VCC of one motor driver, solder the wire to the pad, and then solder a small wire from the other driver’s VCC pad to this wire. The same was done for ground.
 To test the motor drivers. The result of these decisions is outlined in this high level diagram.</p>
 
 <p><img src="../images/motor_driver_wiring.jpg" alt="Italian Trulli" width="140%" /></p>
@@ -96,14 +95,14 @@ The duty cycle can also be seen as since the duty cycle was about 195/256, so th
 
 <p><img src="../images/Oscilliscope.jpg" alt="Italian Trulli" width="100%" /></p>
 
-<h3 id="short-video-of-wheels-spinning-as-expected-including-code-snippet-its-running-on">Short video of wheels spinning as expected (including code snippet it’s running on)</h3>
+<p>This video resulted from running the code.</p>
 
 <video width="100%" controls="">
   <source src="../videos/One_side_wheel.webm" type="video/webm" />
   Your browser does not support the video tag.
 </video>
 
-<h3 id="short-video-of-both-wheels-spinning-with-battery-driving-the-motor-drivers">Short video of both wheels spinning (with battery driving the motor drivers)</h3>
+<h3 id="spinning-both-motors">Spinning both motors</h3>
 
 <p>The process was repeated for the other motor driver and as discussed in the prelab, I hooked up the VCC and ground pins of the motor driver together through the battery leads. I then connected the battery and ran my code for both motor drivers. To do this, I created a more compact function as well as a few macros. First I defined the motor inputs,</p>
 
@@ -182,7 +181,7 @@ move(speed_1,speed_2,1000,1);
 move(-speed_1,-speed_2,1000,1);
 </code></pre></div></div>
 
-<h3 id="picture-of-all-the-components-secured-in-the-car">Picture of all the components secured in the car</h3>
+<h3 id="final-assembly">Final Assembly</h3>
 
 <p>With both of the motor drivers tested and integrated, here is a photo of the final assembly.
 <img src="../images/components_in_car.jpg" alt="Italian Trulli" width="70%" /></p>
@@ -213,7 +212,7 @@ motor drivers into the bluetooth code by adding a MOVE_LINE command. It works li
 <p>Essentially sending any possible command to the move() method over bluetooth. I could also
 replace the move() method with any other custom method and execute that instead.</p>
 
-<h3 id="lower-pwm-value">Lower PWM Value</h3>
+<h3 id="lower-pwm-threshold">Lower PWM Threshold</h3>
 
 <p>With MOVE_LINE created, I could then investigate the lower limits of the pwm values that moved
 the motors as when doing control theory later on, the output values to the motors should not
@@ -251,7 +250,7 @@ to be calibrated in order to move both sides of the car equally.</p>
 <p>As you can see, the robot veers left.</p>
 
 <p>By using MOVE_LINE, to adjust the speed parameters, I found that multiplying the
-left motor’s pwm value by 1.45 times the right motor pwm value, so this line was added to change_speed()</p>
+left motor’s pwm value by 1.45 times the right motor pwm value was good, so this line was added to change_speed()</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>speed_1 = MOTOR_CORRECTION_FACTOR_1_to_2 * speed_1;
 </code></pre></div></div>

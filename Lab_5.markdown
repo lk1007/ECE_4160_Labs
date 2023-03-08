@@ -8,7 +8,6 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
 }
 video {
   display: block;
@@ -20,7 +19,7 @@ In Lab5, the goal was to investigate and integrate the motor drivers into the ex
 ## Prelab
 ### Wiring
 
-In planning the wiring for this lab, a few things were taken into account. To get input to the motor drivers, pwm pins had to be used on the artemis. Looking at schematic for the board, available pins for this task were pins 4,5,14,15. To attach the motor drivers, the inputs and outputs of the motor were driven in parallel since only two inputs were used, but 4 are given, so the driver's inputs and outputs had to be soldered together. Another important question was how to connect power as there are two motor drivers to drive, but only two leads from the battery. The solution to this was to run a wire through VCC of one motor driver, solder the wire to the pad, and then solder a small wire from the other driver's VCC pad to this wire. The same was done for ground.
+In planning the wiring for this lab, a few things were taken into account. To get input to the motor drivers, pwm pins had to be used on the artemis. Looking at the schematic for the board, available pins for this task were pins 4,5,14,15. To attach the motor drivers, the inputs and outputs of the motor were driven in parallel since only two inputs were used, but 4 are given, so the driver's inputs and outputs had to be soldered together. Another important question was how to connect power as there are two motor drivers to drive, but only two leads from the battery. The solution to this was to run a wire through VCC of one motor driver, solder the wire to the pad, and then solder a small wire from the other driver's VCC pad to this wire. The same was done for ground.
 To test the motor drivers. The result of these decisions is outlined in this high level diagram.
 
 <img src="../images/motor_driver_wiring.jpg" alt="Italian Trulli" width="140%">
@@ -54,14 +53,14 @@ The duty cycle can also be seen as since the duty cycle was about 195/256, so th
 
 <img src="../images/Oscilliscope.jpg" alt="Italian Trulli" width="100%">
 
-### Short video of wheels spinning as expected (including code snippet it’s running on)
+This video resulted from running the code.
 
 <video width="100%" controls>
   <source src="../videos/One_side_wheel.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-### Short video of both wheels spinning (with battery driving the motor drivers)
+### Spinning both motors
 
 The process was repeated for the other motor driver and as discussed in the prelab, I hooked up the VCC and ground pins of the motor driver together through the battery leads. I then connected the battery and ran my code for both motor drivers. To do this, I created a more compact function as well as a few macros. First I defined the motor inputs,  
 
@@ -137,7 +136,7 @@ This is the code the example in the video ran on
     move(speed_1,speed_2,1000,1);
     move(-speed_1,-speed_2,1000,1);
 
-### Picture of all the components secured in the car
+### Final Assembly
 
 With both of the motor drivers tested and integrated, here is a photo of the final assembly.
 <img src="../images/components_in_car.jpg" alt="Italian Trulli" width="70%">
@@ -167,7 +166,7 @@ motor drivers into the bluetooth code by adding a MOVE_LINE command. It works li
 Essentially sending any possible command to the move() method over bluetooth. I could also
 replace the move() method with any other custom method and execute that instead.
 
-### Lower PWM Value
+### Lower PWM Threshold
 
 With MOVE_LINE created, I could then investigate the lower limits of the pwm values that moved
 the motors as when doing control theory later on, the output values to the motors should not
@@ -204,7 +203,7 @@ Here is a video of the car attempting to move in a straight line uncalibrated.
 As you can see, the robot veers left.
 
 By using MOVE_LINE, to adjust the speed parameters, I found that multiplying the
-left motor's pwm value by 1.45 times the right motor pwm value, so this line was added to change_speed()
+left motor's pwm value by 1.45 times the right motor pwm value was good, so this line was added to change_speed()
 
     speed_1 = MOTOR_CORRECTION_FACTOR_1_to_2 * speed_1;
 
