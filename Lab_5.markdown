@@ -69,7 +69,7 @@ The process was repeated for the other motor driver and as discussed in the prel
     #define FORWARD_MOTOR_2 5
     #define BACKWARD_MOTOR_2 2
 
-I could then create an easy to use function, change_speed() which would change the speed of each motor easily
+I could then create an easy to use function, change_speed(), which would change the speed of each motor easily
 
     void change_speed(int speed_1, int speed_2)
     {
