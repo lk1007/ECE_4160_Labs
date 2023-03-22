@@ -67,13 +67,13 @@ so Kp should be of that magnitude.
 At the end of adjusting values, Kp was settled at 0.08 which was around what was expected.
 For Ki, this value would be multiplied by the integrated value which would increase every sampling period which is later discussed as around 100ms,
 so if Ki is to have the same values of Kp, then
-$$ Ki = \frac{K_P}{10Hz} = 0.006 $$
+$$ K_I = \frac{K_P}{10Hz} = 0.006 $$
 After testing though, Ki became much higher at 0.15.
 To keep the integral from getting too large, I had to clamp the error accumulator. Since the robot starts so far from the equilibrium point, I didn't want error to accumulate too much, so I clamped the error accumulator at about 300mm to be easy to turn over near equilibrium.
 
 To find Kd, Kd would be the change in error and thus the derivative of position, so since the speed of the robot is at maximum,
 2.317m/s, then
-$$ K_D \approx \frac{maximum pwm}{maximum change in error} = \frac{maximum pwm}{\frac{maximum speed}{sampling time}} = \frac{(255)(.1s)}{2.317m/s} \approx 11 $$
+$$ K_D \approx \frac{\text{maximum pwm}}{\text{maximum change in error}} = \frac{\text{maximum pwm}}{\frac{\text{maximum speed}}{\text{sampling time}}} = \frac{(255)(.1s)}{2.317m/s} \approx 11 $$
 This number is gigantic, but Kd should have a much smaller effect than Kp, so Kd was estimated to be around 100th of the size at around .2
 
 ### Creating system
@@ -138,19 +138,21 @@ I created a useful command, "CHANGE_PID" to change my pid values as well as inte
         Imax = (int16_t)max;
 
 and called like this 
+
     ble.send_command(CMD.CHANGE_PID,"|.08|.02|.35|35|200")
 
 This function testing PID values very easy.
 
 To find all values, I used the 2nd heuristic approach discussed in lecture. First I increased Kp from about 0.001
-until the car overshot the 300mm mark. I settled on about 0.008 shown by this video.
+until the car overshot the 300mm mark. I settled on about 0.008, but I changed this later opting for a much
+larger 0.08 based on my calculations shown by this video.
 
 <video width="100%" controls>
   <source src="../videos/p.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-I then decreased Kp to 0.004 and increased Ki until it lost stability shown here at about 0.03
+I then decreased Kp to 0.004 (before my change) and increased Ki until it lost stability shown here at about 0.03
 
 <video width="100%" controls>
   <source src="../videos/pi.webm" type="video/webm">
