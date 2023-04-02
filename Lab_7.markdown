@@ -56,3 +56,119 @@ Estimate the noise variables, sigma_u and sigma_z.
 $$ \Sigma_z = \begin{bmatrix} \sigma_z^2 \end{bmatrix} $$
 
 $$ \Sigma_u = \begin{bmatrix} \sigma_x^2 & 0\\  0 & \sigma_v^2 \end{bmatrix} $$
+
+to find these variables,
+from class, 
+
+$$ \sigma_z = \sigma_{TOF} \approx 20mm $$
+
+also,
+
+$$ \sigma_x = \sigma_v = \sqrt{10^2 * \frac{1}{dt}} $$
+
+,so 
+
+$$ \Sigma_z = \begin{bmatrix} 20^2 \end{bmatrix} $$
+
+$$ \Sigma_u = \begin{bmatrix} \sigma_x^2 & 0\\  0 & \sigma_v^2 \end{bmatrix} $$
+
+with these values worked out, I could finally create the kalman filter using the function given in class.
+Since my code is identical to the given code, here is my matrix creation and calling of the function.
+
+    u= np.array([[dist[0]],[0]])
+    sigma = Sigma_u
+    for t,mo,d in zip(times,motor,dist):
+        u,sigma = kf(u,sigma,mo/200,d)
+        kf_times.append(t + time*dt) 
+        kf_out.append(u[0][0])
+        kf_vel.append(u[1][0])
+
+resulting in this graph
+
+<img src="../images/kf_python.png" alt="Italian Trulli" width="100%">
+
+As can be seen, the kalman filter successfully follows the outline of the data allowing me to effectively predict the next
+TOF point.
+
+I then had to implement this filter in arduino. I implemented the kalman filter on arduino like this.
+
+    inline void kf(Matrix<2> &mu, Matrix<2, 2> &sigma, Matrix<1> u, Matrix<1> y, bool update)
+    {
+        Matrix<2> mu_p = (A * mu) + (B * u);
+        Matrix<2, 2> sigma_p = A * (sigma * (~A)) + Sigma_u;
+        if (update)
+        {
+            Matrix<1, 1> sigma_m = C * (sigma_p * ~C) + Sigma_z;
+            Matrix<1, 1> sigma_m_inv;
+            bool inv = Invert(sigma_m, sigma_m_inv);
+            Matrix<2, 1> kkf_gain = sigma_p * ((~C) * sigma_m_inv);
+
+            Matrix<1, 1> y_m = y - C * mu_p;
+            mu = mu_p + kkf_gain * y_m;
+            sigma = eye_2 - kkf_gain * (C)*sigma_p;
+        }
+        else
+        {
+        mu = mu_p;
+        sigma = sigma_p;
+        }
+    }
+
+I then had to modify my PID loop from Lab 6. What I did was wait my sampling time (15ms) and if
+the time of flight sensor had data,
+
+        if (dist1Buff[cnt] != 4000)
+            kf(state, sigma, float(motorBuff[cnt]) / 200, dist1Buff[cnt], true);
+        else
+            kf(state, sigma, float(motorBuff[cnt]) / 200, dist1Buff[cnt], false);
+        kfBuff[cnt] = state(0);
+
+but if there was no data
+
+        kf(state, sigma, float(motorBuff[cnt]) / 200, dist1Buff[cnt], false);
+        dist1Buff[cnt] = -1;
+        kfBuff[cnt] = state(0);
+
+Then, I would call my PID function with the value of state(0). With this done, I finally tested this
+filter on the robot resulting in this trial,
+
+<video width="100%" controls>
+  <source src="../videos/kf.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+and this data
+
+<img src="../images/trial_kf_1_distance.png" alt="Italian Trulli" width="100%">
+
+<img src="../images/trial_kf_1_motor.png" alt="Italian Trulli" width="100%">
+
+the first value after collecting sensor data is too high and slowly fixes itself as it moves closer to the next data collection. Since I
+had a high Kd value in my PID loop, the noise in the motor value graph is probably due to the cascaded kalmar filter output.
+
+I had to modify certain values in the B matrix as the motor values didn't have as much of an effect on the kalman filter output as expected. Because my data was positive, I needed to make the C matrix equal to [1 0] instead of [-1 0]. I also needed to make my B matrix You can see that the output is tiered as my B matrix was still not steep enough. I reran my python program attempting to add in a prediction step in order to better analyze my kalman filter model resulting in this data.
+
+<img src="../images/kf_python_fixed.png" alt="Italian Trulli" width="100%">
+
+I had to increase the B matrix values by about 3 times, I also had to make the value negative. This is probably because of my positive distance values
+as well as a mass value that was larger than expected.
+
+The code I used to produce this data was like this, 
+
+        for t,mo,d in zip(times,motor,dist):
+            for time in range(int(tot_dt/dt)):
+                if time == 0:
+                u,sigma = kf(u,sigma,mo/200,d)
+                else:
+                u,sigma = kf(u,sigma,mo/200,-1)
+                pass
+                kf_times.append(t + time*dt) 
+                kf_out.append(u[0][0])
+                kf_vel.append(u[1][0])
+
+As can be seen, with modifications to the python code, the cascaded nature of the filter is seen with a small sample period.
+
+
+
+
+
