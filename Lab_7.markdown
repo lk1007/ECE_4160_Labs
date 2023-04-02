@@ -64,13 +64,13 @@ $$ \sigma_z = \sigma_{TOF} \approx 20mm $$
 
 also,
 
-$$ \sigma_x = \sigma_v = \sqrt{10^2 * \frac{1}{dt}} $$
+$$ \sigma_x = \sigma_v = \sqrt{10^2 * \frac{1}{dt}} \approx 81 $$
 
 ,so 
 
 $$ \Sigma_z = \begin{bmatrix} 20^2 \end{bmatrix} $$
 
-$$ \Sigma_u = \begin{bmatrix} \sigma_x^2 & 0\\  0 & \sigma_v^2 \end{bmatrix} $$
+$$ \Sigma_u = \begin{bmatrix} 81^2 & 0\\  0 & 81^2 \end{bmatrix} $$
 
 with these values worked out, I could finally create the kalman filter using the function given in class.
 Since my code is identical to the given code, here is my matrix creation and calling of the function.
@@ -88,7 +88,9 @@ resulting in this graph
 <img src="../images/kf_python.png" alt="Italian Trulli" width="100%">
 
 As can be seen, the kalman filter successfully follows the outline of the data allowing me to effectively predict the next
-TOF point.
+TOF point. I used a sampling rate of 95ms since this was the sampling rate of the sensors.
+
+### Kalman filter on artemis
 
 I then had to implement this filter in arduino. I implemented the kalman filter on arduino like this.
 
@@ -146,6 +148,7 @@ and this data
 the first value after collecting sensor data is too high and slowly fixes itself as it moves closer to the next data collection. Since I
 had a high Kd value in my PID loop, the noise in the motor value graph is probably due to the cascaded kalmar filter output.
 
+### Revisiting python model
 I had to modify certain values in the B matrix as the motor values didn't have as much of an effect on the kalman filter output as expected. Because my data was positive, I needed to make the C matrix equal to [1 0] instead of [-1 0]. I also needed to make my B matrix You can see that the output is tiered as my B matrix was still not steep enough. I reran my python program attempting to add in a prediction step in order to better analyze my kalman filter model resulting in this data.
 
 <img src="../images/kf_python_fixed.png" alt="Italian Trulli" width="100%">
