@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 3
 permalink: /Lab_3/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 In Lab 3, the Time of Flight sensors were analyzed. The quality of their data and how they could be combined together with the artemis's existing capabilites was analyzed.
 ## Prelab

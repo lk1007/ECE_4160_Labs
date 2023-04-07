@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 2
 permalink: /Lab_2/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 Lab 2 was an introduction to bluetooth communication with the artemis board. It required both modifying .ino files controlling the arduino as well as modifying python code allowing a host computer to communicate with the artemis over bluetooth.
 ## Prelab

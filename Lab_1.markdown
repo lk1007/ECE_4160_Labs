@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 1
 permalink: /Lab_1/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 Lab 1 was an introduction to using the artemis board with the arduino ide and showing off various capabilities of the board
 

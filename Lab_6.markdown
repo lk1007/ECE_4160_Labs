@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 6
 permalink: /Lab_6/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 In this lab, PID control was implemented on the artemis in order to simulate the simplest control using one of the sensors on the robot.
 

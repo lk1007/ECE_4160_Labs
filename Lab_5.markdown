@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 5
 permalink: /Lab_5/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 <style> 
 img {
@@ -27,7 +31,7 @@ To test the motor drivers. The result of these decisions is outlined in this hig
 I soldered one of the motor drivers according to the previously explained diagram. After doing that, I hooked one of the
 motor driver inputs to the oscilloscope and the VCC and ground of one of the motor drivers.
 
-<img src="../images/Oscilliscope_setup.jpg" alt="Italian Trulli" width="100%">
+<img src="../images/Oscilliscope_setup.jpg" alt="Italian Trulli" width="50%">
 
 ### Power supply setting
 
@@ -51,11 +55,11 @@ I would then run this code on the other driver's inputs (GPIO 4 and 5) to test t
 Here is a picture of the oscilloscope when one of the motor driver inputs is being powered. As you can see, the amplitude is 3.12V. 3V is around the expected 3.3V coming from the GPIO pin and 
 The duty cycle can also be seen as since the duty cycle was about 195/256, so the wave is mostly high for the duration of the period.
 
-<img src="../images/Oscilliscope.jpg" alt="Italian Trulli" width="100%">
+<img src="../images/Oscilliscope.jpg" alt="Italian Trulli" width="50%">
 
 This video resulted from running the code.
 
-<video width="100%" controls>
+<video width="50%" controls>
   <source src="../videos/One_side_wheel.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
@@ -120,7 +124,7 @@ Then, I created a method, move, to add duration and the ability to choose betwee
 After this was done, I could finally code the example shown in this video with both wheels able to spin in both directions independently and together
 
 
-<video width="100%" controls>
+<video width="50%" controls>
   <source src="../videos/Both_side_wheels.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>

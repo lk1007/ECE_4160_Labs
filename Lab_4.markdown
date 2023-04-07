@@ -1,7 +1,11 @@
 ---
-layout: page
+layout: single
 title: Lab 4
 permalink: /Lab_4/
+author_profile: true
+toc: true
+sidebar:
+  nav: "docs"
 ---
 In lab4, the IMU had to be set up in order to gather position data for the robot. I also had to integrate the IMU data collection with the TOF sensor to send
 all important sensor data over bluetooth.
