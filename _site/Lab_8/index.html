@@ -1,0 +1,513 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lab 8 - ECE-4160</title>
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+  <meta name="author" content="Liam Kain">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ECE-4160">
+<meta property="og:title" content="Lab 8">
+<meta property="og:url" content="http://localhost:4000/Lab_8/">
+
+
+  <meta property="og:description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Lab_8/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          ECE-4160
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/LiamKain.JPG" alt="Liam Kain" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Liam Kain</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/Lab_1/"><span class="nav__sub-title">Lab 1</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_2/"><span class="nav__sub-title">Lab 2</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_3/"><span class="nav__sub-title">Lab 3</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_4/"><span class="nav__sub-title">Lab 4</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_5/"><span class="nav__sub-title">Lab 5</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_6/"><span class="nav__sub-title">Lab 6</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_7/"><span class="nav__sub-title">Lab 7</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_8/"><span class="nav__sub-title">Lab 8</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lab 8">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lab 8
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#setting-up-stunt">Setting up stunt</a></li><li><a href="#debugging">Debugging</a></li><li><a href="#stunt">Stunt</a><ul><li><a href="#trial-1">Trial 1</a></li><li><a href="#trial-2">Trial 2</a></li><li><a href="#trial-3">Trial 3</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>In Lab 8, I did task A, so I had to make the robot flip on the sticky mat and returns past the start line as quickly as possible.</p>
+<h2 id="setting-up-stunt">Setting up stunt</h2>
+<p>To setup task A, my methodology was to run the robot forward as quickly as possible until my kalman filter output sensed it was on the sticky matt. Once it reached this point, it would go in the reverse direction as fast as possible in order to flip and return in the same direction. In order to do this, I added a modification to my pid() function. This would override the pid behavior and calculate the duty cycle of the motors like this.</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">&lt;</span> <span class="n">desired_pos</span> <span class="o">||</span> <span class="n">past_point</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">255</span><span class="p">;</span>
+    <span class="n">past_point</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="mi">220</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Then, I could rename my pid control command from lab 7 and call it like this</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">DO_STUNT</span><span class="p">,</span><span class="s">"|5200|580"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>With the arguments as the desired time of execution and the ‘desired_pos’ variable</p>
+
+<h2 id="debugging">Debugging</h2>
+<p>Initially, the car would flip too late as shown with this trial.</p>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_wall.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p>To fix this, I increased the desired_pos variable from 500 to about 580 in order to make the car flip sooner.
+Another thing I did was fix my kalman filter values. To do this, I created a command ‘CHANGE_KF’ which worked like this,</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">A1</span><span class="p">,</span> <span class="n">A2</span><span class="p">,</span> <span class="n">A3</span><span class="p">,</span> <span class="n">A4</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">B1</span><span class="p">,</span> <span class="n">B2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">dt</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">sigma_z</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">sigma_u</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">A1</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">A2</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">A3</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">A4</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">B1</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">B2</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">sigma_z</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">sigma_u</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">robot_cmd</span><span class="p">.</span><span class="n">get_next_value</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">A</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">A1</span><span class="p">;</span>
+<span class="n">A</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">A2</span><span class="p">;</span>
+<span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">A3</span><span class="p">;</span>
+<span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">A4</span><span class="p">;</span>
+<span class="n">B</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">B1</span><span class="p">;</span>
+<span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">B2</span><span class="p">;</span>
+<span class="n">Sigma_z</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">sigma_z</span><span class="p">;</span>
+<span class="n">Sigma_u</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">sigma_u</span><span class="p">;</span>
+<span class="n">Sigma_u</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sigma_u</span><span class="p">;</span>
+<span class="n">samp_period</span> <span class="o">=</span> <span class="n">dt</span><span class="p">;</span>
+</code></pre></div></div>
+<p>This would allow me to change my kalman filter parameters on the fly to fit the different model of my stunt.
+By using this method, I update the sample period to a lower period to get more frequent sample values and I increased the B matrix
+parameters since the motor had a much larger effect on the position of the car.</p>
+
+<p>Another issue was that the car would move off in the wrong direction shown in this video</p>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_off.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p>This is because I initially set the speed of the motors as 255 and -255 respectively, but
+from lab 5, I had to calibrate the motors with a calibration factor. Since the motors were at their max speed,
+since the calibration factor was 1.55, then 1.55*255 = 255 in terms of analogWrite inputs.
+To fix this, I lower the pwm value to 180. 
+This then created a problem where the motors didn’t move fast enough to flip the car like this.</p>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_slow.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p>To remedy this, I made the pwm values slightly higher. This made reduced the effectiveness of the calibration factor of the motors,
+but the calibration was enough to make the car go in the correct direction.</p>
+
+<h2 id="stunt">Stunt</h2>
+<p>After debugging, these stunts were recorded</p>
+
+<h3 id="trial-1">Trial 1</h3>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_1.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p><img src="../images/trial_stunt_1_distance.png" alt="Italian Trulli" width="100%" />
+<img src="../images/trial_stunt_1_motor.png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="trial-2">Trial 2</h3>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_2.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p><img src="../images/trial_stunt_2_distance.png" alt="Italian Trulli" width="100%" />
+<img src="../images/trial_stunt_2_motor.png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="trial-3">Trial 3</h3>
+<video width="100%" controls="">
+  <source src="../videos/stunt_trial_3.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+<p><img src="../images/trial_stunt_3_distance.png" alt="Italian Trulli" width="100%" />
+<img src="../images/trial_stunt_3_motor.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As can be seen from the data, the kalman filter allows the car to start moving in the opposite direction at about 580mm. From
+the video, the car successfully flips on the mat and returns to its initial position successfully.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ECE-4160. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
