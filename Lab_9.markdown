@@ -66,7 +66,7 @@ void doPID_IMU(float current_pos, int16_t desired_pos, int16_t *motorBuff, int16
 }
 ```
 By doing this, I could the same PID code from Lab 6 except for also sending my motor 2 values as well.
-By using the heuristic approach from Lab 6, I was able to acheive a successful angular speed control at 80 (rad/s)shown in this video.
+By using the heuristic approach from Lab 6, I was able to acheive a successful angular speed control at 80DPS shown in this video.
 <video width="100%" controls>
   <source src="../videos/pid_test.webm" type="video/webm">
   Your browser does not support the video tag.
@@ -79,6 +79,17 @@ With this data
 
 As can be seen, due to the inconsistency of the motors and the tires even with tape on, the car moves slightly. This strongly depends
 on both the orientation of the motors, battery level, and correction factor given.
+
+The lowest speed I could achieve without overflowing my data buffers was around 60DPS(degrees/s). 95ms, then
+
+$$ \text{degree/measurement} = 60 degree/s * \frac{.095s}{measurement} = 5.7degree/measurement$$
+
+so the accuracy would be about
+
+$$ 360 ^ \circ * \frac{1measurement}{5.7^\circ} = 63.16measurement/revolution $$
+
+This is also with the around 20mm precision of the TOF sensor.
+
 
 ## Mapping
 ### Sending IMU and TOF data
