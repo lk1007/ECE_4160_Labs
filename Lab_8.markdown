@@ -103,7 +103,7 @@ After debugging, these stunts were recorded
 
 ### Trial 1
 <video width="100%" controls>
-  <source src="../videos/stunt_trial_2.webm" type="video/webm">
+  <source src="../videos/stunt_trial_1.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 <img src="../images/trial_stunt_1_distance.png" alt="Italian Trulli" width="100%">
