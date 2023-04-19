@@ -1,0 +1,545 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lab 9 - ECE-4160</title>
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+  <meta name="author" content="Liam Kain">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ECE-4160">
+<meta property="og:title" content="Lab 9">
+<meta property="og:url" content="http://localhost:4000/Lab_9/">
+
+
+  <meta property="og:description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Lab_9/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          ECE-4160
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/LiamKain.JPG" alt="Liam Kain" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Liam Kain</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/Lab_1/"><span class="nav__sub-title">Lab 1</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_2/"><span class="nav__sub-title">Lab 2</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_3/"><span class="nav__sub-title">Lab 3</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_4/"><span class="nav__sub-title">Lab 4</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_5/"><span class="nav__sub-title">Lab 5</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_6/"><span class="nav__sub-title">Lab 6</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_7/"><span class="nav__sub-title">Lab 7</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_8/"><span class="nav__sub-title">Lab 8</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_9/"><span class="nav__sub-title">Lab 9</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lab 9">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lab 9
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#angular-speed-control">Angular Speed Control</a><ul><li><a href="#preprocessing">PreProcessing</a></li><li><a href="#pid-control">PID Control</a></li></ul></li><li><a href="#mapping">Mapping</a><ul><li><a href="#sending-imu-and-tof-data">Sending IMU and TOF data</a></li><li><a href="#converting-polar-to-rectangular">Converting polar to rectangular</a></li><li><a href="#final-map">Final Map</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>In Lab 9, I used angular speed control to map the controlled space in the lab in order to allow future localization for the robot.</p>
+<h2 id="angular-speed-control">Angular Speed Control</h2>
+
+<h3 id="preprocessing">PreProcessing</h3>
+
+<p>First I had to low pass my gyroscope values. I did this the same way as in Lab 4.</p>
+
+<p><img src="../images/lab_9_fft.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>In lab 4 my accelerometer already had a low pass filter on it, so I assume from this fft, my gyroscope already has a low pass filter as well.</p>
+
+<p>I ran into a problem though. As I did differential control on my PID controller, the robot struggled tremendously. I realized that this
+must be due to noise in the gyroscope only present when turning. Because this was obviously motor noise, I used the same alpha value from lab 4 to get a cuttoff frequency of about 15Hz thus fixing the controller.</p>
+<h3 id="pid-control">PID Control</h3>
+<p>In order to do PID control on the angular velocity, I modified my Lab 6 code to assign the PID
+value to both motors individually in order to turn the robot, though the duty_cycle of the left
+motor is the same as the right motor as my correction factor fixes any inequalities.</p>
+
+<p>Here is the PID control code</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int16_t</span> <span class="n">duty_cycle_last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">doPID_IMU</span><span class="p">(</span><span class="kt">float</span> <span class="n">current_pos</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="n">desired_pos</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="o">*</span><span class="n">motorBuff</span><span class="p">,</span> <span class="kt">int16_t</span> <span class="o">*</span><span class="n">motor2Buff</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">duty_cycle_last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">current_pos</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">current_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">error</span> <span class="o">=</span> <span class="n">current_pos</span> <span class="o">-</span> <span class="n">desired_pos</span><span class="p">;</span>
+
+  <span class="n">error_accumulation</span> <span class="o">+=</span> <span class="n">error</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">error_accumulation</span> <span class="o">&gt;</span> <span class="n">Imax</span><span class="p">)</span>
+    <span class="n">error_accumulation</span> <span class="o">=</span> <span class="n">Imax</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error_accumulation</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="n">Imax</span><span class="p">))</span>
+    <span class="n">error_accumulation</span> <span class="o">=</span> <span class="o">-</span><span class="n">Imax</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">error_deriv</span> <span class="o">=</span> <span class="n">error</span> <span class="o">-</span> <span class="n">prev_error</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty1</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty2</span> <span class="o">=</span> <span class="n">Ki</span> <span class="o">*</span> <span class="n">error_accumulation</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty3</span> <span class="o">=</span> <span class="n">Kd</span> <span class="o">*</span> <span class="n">error_deriv</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty_cycle</span> <span class="o">=</span> <span class="n">duty1</span> <span class="o">+</span> <span class="n">duty2</span> <span class="o">+</span> <span class="n">duty3</span><span class="p">;</span>
+  <span class="n">prev_error</span> <span class="o">=</span> <span class="n">error</span><span class="p">;</span>
+  <span class="c1">//duty_cycle = duty_cycle_last + duty_cycle;</span>
+  <span class="c1">//duty_cycle_last = duty_cycle;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">duty_cycle</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">duty_cycle</span> <span class="o">-=</span> <span class="n">min_threshold</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">duty_cycle</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">duty_cycle</span> <span class="o">+=</span> <span class="n">min_threshold</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">duty_cycle</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">duty_cycle</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">duty_cycle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">255</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty_cycle_1</span> <span class="o">=</span> <span class="n">duty_cycle</span><span class="p">;</span>
+  <span class="kt">int16_t</span> <span class="n">duty_cycle_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">duty_cycle</span><span class="p">;</span>
+  <span class="n">change_speed</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">duty_cycle_1</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">duty_cycle_2</span><span class="p">);</span>
+  <span class="n">motorBuff</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">duty_cycle_1</span><span class="p">;</span>
+  <span class="n">motor2Buff</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">duty_cycle_2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>By doing this, I could the same PID code from Lab 6 except for also sending my motor 2 values as well.
+By using the heuristic approach from Lab 6, I was able to acheive a successful angular speed control at 80 (rad/s)shown in this video.</p>
+<video width="100%" controls="">
+  <source src="../videos/pid_test.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<p>With this data</p>
+
+<p><img src="../images/lab_9_pid_accel.png" alt="Italian Trulli" width="100%" />
+<img src="../images/lab_9_pid_motor.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As can be seen, due to the inconsistency of the motors and the tires even with tape on, the car moves slightly. This strongly depends
+on both the orientation of the motors, battery level, and correction factor given.</p>
+
+<h2 id="mapping">Mapping</h2>
+<h3 id="sending-imu-and-tof-data">Sending IMU and TOF data</h3>
+<p>In order to do mapping, I had to send both my IMU values and my TOF values in order to calculate angles.
+To do this, I modified my lab6 code to do this,</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">myICM</span><span class="p">.</span><span class="n">dataReady</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">vl53_1</span><span class="p">.</span><span class="n">dataReady</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">vl53_2</span><span class="p">.</span><span class="n">dataReady</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"collecting distance"</span><span class="p">);</span>
+        <span class="n">timeDBuff</span><span class="p">[</span><span class="n">cnt_d</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">currTime</span><span class="p">;</span>
+        <span class="n">getDistance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vl53_1</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">dist1Buff</span><span class="p">[</span><span class="n">cnt_d</span><span class="p">]));</span>
+        <span class="n">getDistance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vl53_2</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">dist2Buff</span><span class="p">[</span><span class="n">cnt_d</span><span class="p">]));</span>
+        <span class="n">cnt_d</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">timeIBuff</span><span class="p">[</span><span class="n">cnt_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">currTime</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"collecting imu"</span><span class="p">);</span>
+    <span class="n">setAGMT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myICM</span><span class="p">);</span>
+    <span class="n">zBuff</span><span class="p">[</span><span class="n">cnt_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_g</span><span class="p">;</span>
+    <span class="n">doPID_IMU</span><span class="p">(</span><span class="n">zBuff</span><span class="p">[</span><span class="n">cnt_i</span><span class="p">],</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="n">fun_arg</span><span class="p">,</span> <span class="n">motorBuff</span><span class="p">,</span> <span class="n">motor2Buff</span><span class="p">,</span> <span class="n">cnt_i</span><span class="p">);</span>
+    <span class="n">cnt_i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>With this code modification, I could tell the robot to spin for a given time with the stunt command from Lab 8.
+I could then collect TOF data and IMU data at once while spinning at a controlled speed.</p>
+
+<h3 id="converting-polar-to-rectangular">Converting polar to rectangular</h3>
+
+<p>To make the maps, I ran the stunts at 4 marked positions on the arena like this 270 degree run.</p>
+<video width="100%" controls="">
+  <source src="../videos/map_test.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<p>One problem with my spins was the inconsistency of the rotation. The rotation would always get slightly off axis unless I specifically fine tuned my correction factor for my motors. This desired factor changed almost every run as no two runs would undergo the same friction, so to get a full 360 degree turn, the robot would always get slightly off axis. I opted to do multiple partial revolution runs and merge them with a full 360 run at a higher speed in order to see which modifications to make.</p>
+
+<p>To convert the distance values to rectangular coordinates, I used transformation matrices. For the robot transformation matrix,
+It was a rotation about the angle of the robot and an offset of whatever point I was measuring at (like (5,3)). For the transformation
+from the robot to the first TOF sensor, since TOF1 was in front, it was no rotation and 7cm in the y direction. TOF2 was a rotation of \(-90^\circ\) and an offset of 3cm in the x direction.
+To get the current angle, I simply used np.trapz to integrate the IMU velocity value from time 0 to the distance measurement time in order find its angular position and thus the angle. After doing this, I could convert polar graphs like this,</p>
+
+<p><img src="../images/lab_9_(5, 3)_polar.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>To these
+<img src="../images/lab_9_(5, 3).png" alt="Italian Trulli" width="100%" />
+<img src="../images/lab_9_(5, -3).png" alt="Italian Trulli" width="100%" />
+<img src="../images/lab_9_(0, 3).png" alt="Italian Trulli" width="100%" />
+<img src="../images/lab_9_(-3, -2).png" alt="Italian Trulli" width="100%" /></p>
+
+<p>Another thing to consider was how similar different runs were. Some runs would get significantly more data points like this</p>
+
+<p><img src="../images/lab_9_(5, -3)_before.png" alt="Italian Trulli" width="100%" />
+<img src="../images/lab_9_(5, -3)_after.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>The angle of the measurements stayed surprisingly consistent, but the distances recorded would vary wildly from run to run.</p>
+
+<h3 id="final-map">Final Map</h3>
+<p>Putting these all together, I got this</p>
+
+<p><img src="../images/lab_9_map_offset.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>Something is wrong here, the lines don’t match up. The way I fixed this was by rotating each graph by \(frac{\pi}{10}\).
+This seemed to have fixed the problem. I assume this offset comes from the inconsistent angular speed at the initial PID control of the robot. With this fix, the full map is shown</p>
+
+<p><img src="../images/lab_9_map.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>Drawing lines where the walls should be yields this picture</p>
+
+<p><img src="../images/map_drawn.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>As can be seen, in areas like (5,3), the off axis rotation caused problems with the right wall as the distance read by sensor 2 a quarter rotation before had a wildly different value from sensor 1. The top of the box in the bottom of the arena was also not read well due to the inconsistency of the TOF sensor at long distances.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ECE-4160. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
