@@ -302,6 +302,14 @@
         
       </li>
     
+      <li>
+        
+          <a href="/Lab_10/"><span class="nav__sub-title">Lab 10</span></a>
+        
+
+        
+      </li>
+    
   </ul>
 </nav>
 
@@ -396,7 +404,7 @@ motor is the same as the right motor as my correction factor fixes any inequalit
 <span class="p">}</span>
 </code></pre></div></div>
 <p>By doing this, I could the same PID code from Lab 6 except for also sending my motor 2 values as well.
-By using the heuristic approach from Lab 6, I was able to acheive a successful angular speed control at 80 (rad/s)shown in this video.</p>
+By using the heuristic approach from Lab 6, I was able to acheive a successful angular speed control at 80DPS shown in this video.</p>
 <video width="100%" controls="">
   <source src="../videos/pid_test.webm" type="video/webm" />
   Your browser does not support the video tag.
@@ -409,6 +417,16 @@ By using the heuristic approach from Lab 6, I was able to acheive a successful a
 
 <p>As can be seen, due to the inconsistency of the motors and the tires even with tape on, the car moves slightly. This strongly depends
 on both the orientation of the motors, battery level, and correction factor given.</p>
+
+<p>The lowest speed I could achieve without overflowing my data buffers was around 60DPS(degrees/s). 95ms, then</p>
+
+\[\text{degree/measurement} = 60 degree/s * \frac{.095s}{measurement} = 5.7degree/measurement\]
+
+<p>so the accuracy would be about</p>
+
+\[360 ^ \circ * \frac{1measurement}{5.7^\circ} = 63.16measurement/revolution\]
+
+<p>This is also with the around 20mm precision of the TOF sensor.</p>
 
 <h2 id="mapping">Mapping</h2>
 <h3 id="sending-imu-and-tof-data">Sending IMU and TOF data</h3>

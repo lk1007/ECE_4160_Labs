@@ -30,3 +30,7 @@ docs:
     image_path: /images/trial_kf_1_distance.png
     alt: "Lab 9 image"
     title: "Lab 9"
+  - url: /Lab_10/
+    image_path: /images/trial_kf_1_distance.png
+    alt: "Lab 10 image"
+    title: "Lab 10"

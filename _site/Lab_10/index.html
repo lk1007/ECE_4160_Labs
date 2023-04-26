@@ -1,0 +1,583 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lab 10 - ECE-4160</title>
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+  <meta name="author" content="Liam Kain">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ECE-4160">
+<meta property="og:title" content="Lab 10">
+<meta property="og:url" content="http://localhost:4000/Lab_10/">
+
+
+  <meta property="og:description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Lab_10/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          ECE-4160
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/LiamKain.JPG" alt="Liam Kain" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Liam Kain</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/Lab_1/"><span class="nav__sub-title">Lab 1</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_2/"><span class="nav__sub-title">Lab 2</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_3/"><span class="nav__sub-title">Lab 3</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_4/"><span class="nav__sub-title">Lab 4</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_5/"><span class="nav__sub-title">Lab 5</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_6/"><span class="nav__sub-title">Lab 6</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_7/"><span class="nav__sub-title">Lab 7</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_8/"><span class="nav__sub-title">Lab 8</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_9/"><span class="nav__sub-title">Lab 9</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_10/"><span class="nav__sub-title">Lab 10</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lab 10">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lab 10
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#designing-filter">Designing Filter</a><ul><li><a href="#prediction-step">Prediction Step</a></li><li><a href="#update-step">Update Step</a></li></ul></li><li><a href="#motion-model">Motion Model</a><ul><li><a href="#sensor-model">Sensor Model</a></li><li><a href="#compute-control">Compute Control</a></li></ul></li><li><a href="#results">Results</a></li><li><a href="#references">References</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>In this lab, I had to implement a bayesian filter by implementing various python functions that would run in a simulator of my real robot’s movements.</p>
+
+<p>The way I thought about the implementation of these functions was by working backward.</p>
+
+<h2 id="designing-filter">Designing Filter</h2>
+
+<p>The basic bayes filter works like this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for all x_t do 
+  bel_bar(x_t) = sum(p(x_t | u_t,x_t-1)*bel(x_t-1))
+  bel(x_t) = eta*(p(z_t | x_t)*bel_bar(x_t-1))
+</code></pre></div></div>
+
+<p>Therefore, the prediction step is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for all x_t do 
+  bel_bar(x_t) = sum(p(x_t | u_t,x_t-1)*bel(x_t-1))
+</code></pre></div></div>
+
+<h3 id="prediction-step">Prediction Step</h3>
+
+<p>In the case of the robot, 
+\(p(x_t | u_t,x_{t-1})\) is the motion model explained later. 
+\(x_t\) is each position in the graph which is an element in a 12 x 9 x 18 array. Therefore, the loop is through each index of the array and getting the position as</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mapper</span><span class="p">.</span><span class="n">from_map</span><span class="p">(</span><span class="n">x_curr</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">_curr</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">curr</span><span class="p">).</span>
+</code></pre></div></div>
+
+<p>To calculate the sum of the prediction expression, we need to loop through the array again for each 
+\(x_t\) and add the prediction expression to the bel_bar value at the current value’s index like this, .</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bel_bar</span><span class="p">[</span><span class="n">x_cur</span><span class="p">][</span><span class="n">y_cur</span><span class="p">][</span><span class="n">a_cur</span><span class="p">]</span> <span class="o">+=</span> <span class="n">odom_motion_model</span><span class="p">(</span><span class="n">cur_pose</span><span class="p">,</span> <span class="n">prev_pose</span><span class="p">,</span> <span class="n">actual_u</span><span class="p">)</span> <span class="o">*</span> <span class="n">loc</span><span class="p">.</span><span class="n">bel</span><span class="p">[</span><span class="n">x_prev</span><span class="p">][</span><span class="n">y_prev</span><span class="p">][</span><span class="n">a_prev</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>By looking at Aparajito Saha and Anya Prabowo’s code, I found that a way to speed the code up is to reverse the two iterations and iterate through
+\(x_{t-1}\) first and then 
+\(x_{t}\). By doing this, if 
+\(bel(x_{t-1}) &lt; 0.0001\), then 
+\(p(x_t | u_t, x_{t-1}) \approx 0\), so it doesn’t need to be evaluated. These assumptions result in this code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">actual_u</span> <span class="o">=</span> <span class="n">compute_control</span><span class="p">(</span><span class="n">cur_odom</span><span class="p">,</span> <span class="n">prev_odom</span><span class="p">)</span>
+
+<span class="n">x_s</span><span class="p">,</span> <span class="n">y_s</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_X</span><span class="p">,</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_Y</span><span class="p">,</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_A</span><span class="p">)</span>
+<span class="n">bel_bar</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">x_s</span><span class="p">,</span><span class="n">y_s</span><span class="p">,</span><span class="n">a_s</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">x_prev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_s</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">y_prev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_s</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">a_prev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a_s</span><span class="p">):</span>
+            <span class="n">cur_pose</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_prev</span><span class="p">,</span> <span class="n">y_prev</span><span class="p">,</span> <span class="n">a_prev</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">loc</span><span class="p">.</span><span class="n">bel</span><span class="p">[</span><span class="n">x_prev</span><span class="p">][</span><span class="n">y_prev</span><span class="p">][</span><span class="n">a_prev</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0001</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">x_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_s</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">y_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_s</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">a_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a_s</span><span class="p">):</span>
+                            <span class="n">prev_pose</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="n">from_map</span><span class="p">(</span><span class="n">x_prev</span><span class="p">,</span> <span class="n">y_prev</span><span class="p">,</span> <span class="n">a_prev</span><span class="p">))</span>
+                            <span class="n">cur_pose</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="n">from_map</span><span class="p">(</span><span class="n">x_cur</span><span class="p">,</span> <span class="n">y_cur</span><span class="p">,</span> <span class="n">a_cur</span><span class="p">))</span>
+                            <span class="n">bel_bar</span><span class="p">[</span><span class="n">x_cur</span><span class="p">][</span><span class="n">y_cur</span><span class="p">][</span><span class="n">a_cur</span><span class="p">]</span> <span class="o">+=</span> <span class="n">odom_motion_model</span><span class="p">(</span><span class="n">cur_pose</span><span class="p">,</span> <span class="n">prev_pose</span><span class="p">,</span> <span class="n">actual_u</span><span class="p">)</span> <span class="o">*</span> <span class="n">loc</span><span class="p">.</span><span class="n">bel</span><span class="p">[</span><span class="n">x_prev</span><span class="p">][</span><span class="n">y_prev</span><span class="p">][</span><span class="n">a_prev</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="update-step">Update Step</h3>
+
+<p>The update step is</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for all x_t do
+  bel(x_t) = eta*(p(z_t | x_t)*bel_bar(x_t-1))
+</code></pre></div></div>
+
+<p>To do this, once again 
+\(x_t\) was looped through. The sensor model explained later is 
+\(p(z_t | x_t) = sensor\_model(\text{true z at } x_t)\)
+Therefore, since getting the expected distance values at 
+\(x_t  \text{ was } mapper.get\_views(x_t)\), then the code was</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bel</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">bel</span>
+<span class="n">eta</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x_s</span><span class="p">,</span> <span class="n">y_s</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_X</span><span class="p">,</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_Y</span><span class="p">,</span><span class="n">mapper</span><span class="p">.</span><span class="n">MAX_CELLS_A</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_s</span><span class="p">):</span>  
+    <span class="k">for</span> <span class="n">y_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_s</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">a_cur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a_s</span><span class="p">):</span>
+            <span class="n">sens_model</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">prod</span><span class="p">(</span><span class="n">sensor_model</span><span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="n">get_views</span><span class="p">(</span><span class="n">x_cur</span><span class="p">,</span> <span class="n">y_cur</span><span class="p">,</span> <span class="n">a_cur</span><span class="p">)))</span>
+            <span class="n">bel</span><span class="p">[</span><span class="n">x_cur</span><span class="p">][</span><span class="n">y_cur</span><span class="p">][</span><span class="n">a_cur</span><span class="p">]</span> <span class="o">=</span> <span class="n">eta</span><span class="o">*</span><span class="n">sens_model</span> <span class="o">*</span> <span class="n">loc</span><span class="p">.</span><span class="n">bel_bar</span><span class="p">[</span><span class="n">x_cur</span><span class="p">][</span><span class="n">y_cur</span><span class="p">][</span><span class="n">a_cur</span><span class="p">]</span>
+
+<span class="n">loc</span><span class="p">.</span><span class="n">bel</span>    <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">true_divide</span><span class="p">(</span><span class="n">bel</span><span class="p">,</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">bel</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>The eta value was chosen as 1 as the values were normalized at the end of the function thus not needing a scaling factor.</p>
+
+<h2 id="motion-model">Motion Model</h2>
+
+<p>Now for the motion model or 
+\(p(x_t | u_t, x_{t-1})\). Assuming that the motion noise is gaussian, the probability of a certain position is simply</p>
+
+\[p(x_t | u_t, x_{t-1}) = \sigma(motion_(u_t(expected)) | motion_(u_t(actual)), \sigma_u )\]
+
+<p>where u(expected) is the theoretical command leading 
+\(x_{t-1}\)
+to 
+\(x_t\)</p>
+
+<p>Therefore the probability of a state given a previous state and command is just the probability of the motion from the previous state to the current state given the command.
+Therefore I needed the 
+\(u_{actual}\) and 
+\(u_{expected}\) for each rotation and translation of the robot,
+\(u_{actual}\) was simply the odometer measurements given from the prediction step,
+but 
+\(u_{expected}\) would be 
+\(compute\_control(x_t,x_{t-1})\).</p>
+
+<p>Then, for each transformation, the conditional probability of the motion was calculated. Since all transformations have to occur
+to change states correctly, the probabilities were multiplied together resulting in this code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cur_pose</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapper</span><span class="p">.</span><span class="n">normalize_angle</span><span class="p">(</span><span class="n">cur_pose</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">prev_pose</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapper</span><span class="p">.</span><span class="n">normalize_angle</span><span class="p">(</span><span class="n">prev_pose</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">actual_u</span> <span class="o">=</span> <span class="n">u</span>
+<span class="n">u_exp</span> <span class="o">=</span> <span class="n">compute_control</span><span class="p">(</span><span class="n">cur_pose</span><span class="p">,</span><span class="n">prev_pose</span><span class="p">)</span>
+<span class="n">p_rot_1</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">u_exp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">actual_u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">loc</span><span class="p">.</span><span class="n">odom_rot_sigma</span><span class="p">)</span>
+<span class="n">p_rot_2</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">u_exp</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">actual_u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">loc</span><span class="p">.</span><span class="n">odom_rot_sigma</span><span class="p">)</span>
+<span class="n">p_trans</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">u_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">actual_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">loc</span><span class="p">.</span><span class="n">odom_trans_sigma</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">p_rot_1</span> <span class="o">*</span> <span class="n">p_rot_2</span> <span class="o">*</span> <span class="n">p_trans</span>
+</code></pre></div></div>
+
+<p>Note that the rotations of each pose are normalized in order to not weird results in using the tan function inside of compute_control.</p>
+
+<h3 id="sensor-model">Sensor Model</h3>
+
+<p>The sensor model followed the same procedure as the motion model only this time comparing sensor measurements to the actual measurements
+based on the position of the robot. This again assumed a gaussian distribution of the data thus resulting in this code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_len</span> <span class="o">=</span> <span class="n">mapper</span><span class="p">.</span><span class="n">OBS_PER_CELL</span>
+<span class="n">prob_array</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_len</span><span class="p">)</span>   
+<span class="k">for</span> <span class="n">msr</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">real_o</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">data_len</span><span class="p">),</span><span class="n">loc</span><span class="p">.</span><span class="n">obs_range_data</span><span class="p">,</span><span class="n">obs</span><span class="p">):</span>
+    <span class="n">prob_array</span><span class="p">[</span><span class="n">msr</span><span class="p">]</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">real_o</span><span class="p">,</span> <span class="n">loc</span><span class="p">.</span><span class="n">sensor_sigma</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">prob_array</span>
+</code></pre></div></div>
+
+<h3 id="compute-control">Compute Control</h3>
+
+<p>The final piece of this filter was the backbone of the motion model as in how to calculate the motion of the robot given different positions.
+From class,</p>
+
+\[\delta_{rot1} = atan2(y' - y,x' - x) - \theta\]
+
+\[\delta_{trans} = \sqrt{(x' - x)^2 + (y' - y) ^ 2}\]
+
+\[\delta_{rot2} = \theta' - \theta - \delta_{rot1}\]
+
+<p>Therefore by using the math python library, this code was produced.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">diff</span> <span class="o">=</span> <span class="n">cur_pose</span> <span class="o">-</span> <span class="n">prev_pose</span>
+    <span class="n">delta_rot_1</span> <span class="o">=</span>  <span class="n">np</span><span class="p">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">-</span> <span class="n">prev_pose</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">delta_trans</span> <span class="o">=</span>  <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">norm</span><span class="p">([</span><span class="n">diff</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">delta_rot_2</span> <span class="o">=</span>  <span class="n">diff</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_rot_1</span>
+    <span class="k">return</span> <span class="n">delta_rot_1</span><span class="p">,</span><span class="n">delta_trans</span><span class="p">,</span><span class="n">delta_rot_2</span>
+</code></pre></div></div>
+
+<p>As can be seen, the output of the arctan function had to be converted to degrees to match the units of the output. np.linalg.norm was also used to find the norm of the measurements as this may be faster than using the python math library.</p>
+
+<h2 id="results">Results</h2>
+
+<p>Here is a photo of the resulting Bayes Filter output when running these methods in the simulator.</p>
+
+<p><img src="../images/bayes.png" alt="Italian Trulli" width="100%" /></p>
+
+<video width="100%" controls="">
+  <source src="../videos/bayes.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
+<p>As can be seen from the video, the bayes filter generally stays close to the position of the robot relatively well, but sometimes, it strays too far from its target. Especially at the beginning, the movement of the bayes filter seems to run perpendicular to the movement of the robot due to a jerk move by the robot. As the robot starts to make larger continuous movements over the course of the run, the filter starts to resemble the robot path closely but the sharp turn near the end causes the filter to go off course.</p>
+
+<h2 id="references">References</h2>
+<p>Code greatly mirrored from Aparajito Saha and Anya Prabowo</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ECE-4160. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
