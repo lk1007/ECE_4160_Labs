@@ -1,0 +1,491 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lab 11 - ECE-4160</title>
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+  <meta name="author" content="Liam Kain">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ECE-4160">
+<meta property="og:title" content="Lab 11">
+<meta property="og:url" content="http://localhost:4000/Lab_11/">
+
+
+  <meta property="og:description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Lab_11/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          ECE-4160
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/LiamKain.JPG" alt="Liam Kain" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Liam Kain</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/Lab_1/"><span class="nav__sub-title">Lab 1</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_2/"><span class="nav__sub-title">Lab 2</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_3/"><span class="nav__sub-title">Lab 3</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_4/"><span class="nav__sub-title">Lab 4</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_5/"><span class="nav__sub-title">Lab 5</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_6/"><span class="nav__sub-title">Lab 6</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_7/"><span class="nav__sub-title">Lab 7</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_8/"><span class="nav__sub-title">Lab 8</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_9/"><span class="nav__sub-title">Lab 9</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_10/"><span class="nav__sub-title">Lab 10</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_11/"><span class="nav__sub-title">Lab 11</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lab 11">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lab 11
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#getting-observation-data">Getting observation data</a></li><li><a href="#localization">Localization</a><ul><li><a href="#get_pose">get_pose</a></li><li><a href="#perform_observation_loop">perform_observation_loop</a></li><li><a href="#results">Results</a><ul><li><a href="#53">(5,3)</a></li><li><a href="#03">(0,3)</a></li><li><a href="#5-3">(5,-3)</a></li><li><a href="#-3-2">(-3,-2)</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>In this lab, I merged the simulation code from lab 10 with input from the robot to do localization using the Bayes Filter</p>
+
+<h1 id="getting-observation-data">Getting observation data</h1>
+
+<p>To get observation data from the robot, the data had to come in 20 degree increments. Since I was doing angular speed control, the way to get these 20 degree measurements was to estimate the change in angle based off the time between measurements and the angular speed measurements themselves. Once my estimated change in angle was more thant 20 degrees, I would take a distance measurement. Here is the code that does this.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="n">cnt_d</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">millis</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">myICM</span><span class="p">.</span><span class="n">dataReady</span><span class="p">())</span>
+            <span class="p">{</span>
+
+                <span class="n">setAGMT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myICM</span><span class="p">);</span>
+
+                <span class="n">sum</span> <span class="o">+=</span> <span class="p">(</span><span class="n">z_g</span> <span class="o">*</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">samp_time</span><span class="p">))</span> <span class="o">/</span> <span class="mf">1000.0</span> <span class="o">*</span> <span class="mf">3.14159</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">cnt_d</span><span class="p">);</span>
+                    <span class="n">sum</span> <span class="o">-=</span> <span class="mi">20</span><span class="p">;</span>
+                    <span class="n">timeDBuff</span><span class="p">[</span><span class="n">cnt_d</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">currTime</span><span class="p">;</span>
+                    <span class="n">getDistance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vl53_1</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">dist1Buff</span><span class="p">[</span><span class="n">cnt_d</span><span class="p">]));</span>
+                    <span class="c1">// getDistance(&amp;vl53_2, &amp;(dist2Buff[cnt_d]));</span>
+                    <span class="n">cnt_d</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">doPID_IMU</span><span class="p">(</span><span class="n">z_g</span><span class="p">,</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="n">fun_arg</span><span class="p">,</span> <span class="n">motorBuff</span><span class="p">,</span> <span class="n">motorBuff</span><span class="p">,</span> <span class="n">cnt_i</span><span class="p">);</span>
+                <span class="n">samp_time</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">millis</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="localization">Localization</h1>
+
+<h2 id="get_pose">get_pose</h2>
+<p>Since we were testing our poses in known parts of the room, the result of get_pose was simply the point ((5,3),(0,3)…) converted to meters</p>
+
+<h2 id="perform_observation_loop">perform_observation_loop</h2>
+
+<p>Since I used a notification handler, I needed to use asynchronous io in my method. To do this, I followed the lab handout resulting in this code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+<span class="bp">self</span><span class="p">.</span><span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">GET_OBS</span><span class="p">,</span> <span class="s">"|4000|"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">90</span><span class="p">))</span>
+<span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"dist1"</span><span class="p">])[</span><span class="n">np</span><span class="p">.</span><span class="n">newaxis</span><span class="p">].</span><span class="n">T</span><span class="o">/</span><span class="mi">1000</span> <span class="p">),</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n:"</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s">"p:"</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">n</span><span class="p">,</span><span class="n">p</span>
+</code></pre></div></div>
+
+<p>As seen, my sensor data collection command is called GET_OBS with a collection duration and angular speed specification. I then convert this to the correct numpy array as well as to meters.</p>
+
+<h2 id="results">Results</h2>
+
+<p>From running my localization in each spot, I got these results,</p>
+
+<h3 id="53">(5,3)</h3>
+<p><img src="../images/(5, 3).png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="03">(0,3)</h3>
+<p><img src="../images/(0, 3).png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="5-3">(5,-3)</h3>
+<p><img src="../images/(5, -3).png" alt="Italian Trulli" width="100%" /></p>
+
+<h3 id="-3-2">(-3,-2)</h3>
+<p><img src="../images/(-3, -2).png" alt="Italian Trulli" width="100%" /></p>
+
+<p>From these results, (-3,-2) lined up perfectly with the known position. This is because (-3,-2) has the most walls and the most unique layout out of the 4 locations, thus there were plenty of unique distance values to pinpoint a location. On the other hand the rest of the points were off by about a foot or two. This is because there are not as many walls or the walls were too far away to tell where exactly the robot was. This can be seen strongly in (0,3) and (-5,-3) as their wall layout is very similar so results like this would be seen where the robot thought it was in the similarly layed out location.</p>
+
+<p><img src="../images/(5, -3)bad.png" alt="Italian Trulli" width="100%" /></p>
+
+<p>Hopefully if this inconsistency is rare, then my localization method should be close enough to have the robot map through the arena in lab 12.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ECE-4160. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

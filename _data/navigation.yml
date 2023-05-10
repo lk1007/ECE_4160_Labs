@@ -34,3 +34,7 @@ docs:
     image_path: /images/trial_kf_1_distance.png
     alt: "Lab 10 image"
     title: "Lab 10"
+  - url: /Lab_11/
+    image_path: /images/trial_kf_1_distance.png
+    alt: "Lab 11 image"
+    title: "Lab 11"
