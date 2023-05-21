@@ -1,0 +1,605 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lab 12 - ECE-4160</title>
+<meta name="description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+  <meta name="author" content="Liam Kain">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="ECE-4160">
+<meta property="og:title" content="Lab 12">
+<meta property="og:url" content="http://localhost:4000/Lab_12/">
+
+
+  <meta property="og:description" content="This is the documentation for what I have completed in ECE-4160">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Lab_12/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          ECE-4160
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/images/LiamKain.JPG" alt="Liam Kain" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Liam Kain</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <a href="/Lab_1/"><span class="nav__sub-title">Lab 1</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_2/"><span class="nav__sub-title">Lab 2</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_3/"><span class="nav__sub-title">Lab 3</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_4/"><span class="nav__sub-title">Lab 4</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_5/"><span class="nav__sub-title">Lab 5</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_6/"><span class="nav__sub-title">Lab 6</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_7/"><span class="nav__sub-title">Lab 7</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_8/"><span class="nav__sub-title">Lab 8</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_9/"><span class="nav__sub-title">Lab 9</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_10/"><span class="nav__sub-title">Lab 10</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_11/"><span class="nav__sub-title">Lab 11</span></a>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <a href="/Lab_12/"><span class="nav__sub-title">Lab 12</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lab 12">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Lab 12
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#prototyping-in-simulator">Prototyping in simulator</a></li><li><a href="#setting-up-navigation">Setting up navigation</a><ul><li><a href="#pid">PID</a></li><li><a href="#navigation-loop">Navigation loop</a></li><li><a href="#manual-control">Manual control</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>In this lab, I merged all the topics from previous lab into navigation around various waypoints in the map.</p>
+
+<h1 id="prototyping-in-simulator">Prototyping in simulator</h1>
+
+<p>Before I started doing any testing on the real map, I wanted to test an ideal trajectory creation. To do this, I thought of navigating using these steps</p>
+
+<ul>
+  <li>Localize for current position</li>
+  <li>Calculate required angle and distance to get to next waypoint</li>
+  <li>Execute calculated movement</li>
+  <li>Localize</li>
+  <li>If Localization is too far away keep same waypoint as target, else calculate next waypoint</li>
+</ul>
+
+<p>In practice, this was the code I used to execute the simulated trajectory.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">waypoint</span> <span class="ow">in</span> <span class="n">real_path</span><span class="p">:</span>
+    <span class="n">orig</span> <span class="o">=</span> <span class="n">waypoint</span>
+    <span class="n">waypoint</span> <span class="o">=</span> <span class="n">ft_to_m</span><span class="p">(</span><span class="n">waypoint</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">ft_to_m</span><span class="p">(</span><span class="n">waypoint</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">err</span><span class="p">(</span><span class="n">waypoint</span><span class="p">,</span><span class="n">cur_pos</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"waypoint(m):"</span><span class="p">,</span><span class="n">waypoint</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"waypoint(ft):"</span><span class="p">,(</span><span class="n">orig</span><span class="p">))</span>
+        <span class="n">d</span><span class="p">,</span><span class="n">angle</span> <span class="o">=</span> <span class="n">calc_movement</span><span class="p">(</span><span class="n">cur_pos</span><span class="p">,</span><span class="n">waypoint</span><span class="p">)</span> 
+        <span class="c1">#prev_odom, current_odom, prev_gt, current_gt = traj.execute_time_step(t)
+</span>        <span class="k">if</span><span class="p">(</span><span class="n">orig</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)):</span>
+            <span class="n">cmdr</span><span class="p">.</span><span class="n">set_vel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">cur_angle</span><span class="p">)</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cmdr</span><span class="p">.</span><span class="n">set_vel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">angle</span><span class="p">)</span>
+        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cmdr</span><span class="p">.</span><span class="n">set_vel</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cmdr</span><span class="p">.</span><span class="n">set_vel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Prediction Step
+</span>        <span class="c1">#loc.prediction_step(current_odom, prev_odom)
+</span>        <span class="c1">#loc.print_prediction_stats(plot_data=True)
+</span>        
+        <span class="c1"># Get Observation Data by executing a 360 degree rotation motion
+</span>        <span class="k">await</span> <span class="n">loc</span><span class="p">.</span><span class="n">get_observation_data</span><span class="p">()</span>
+        
+        <span class="c1"># Update Step
+</span>        <span class="n">loc</span><span class="p">.</span><span class="n">update_step</span><span class="p">()</span>
+        <span class="n">bel</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">print_update_stats</span><span class="p">(</span><span class="n">plot_data</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">cur_pos</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cur_angle</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">cur_pos</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, you can see I modified loc.print_update_stats to return the belief value to use as my current position and angle.
+Here is a video of the robot executing the navigation code, here some waypoints are cut off as the simulator robot is too large to move to the waypoints without touching the walls.</p>
+
+<h1 id="setting-up-navigation">Setting up navigation</h1>
+<h2 id="pid">PID</h2>
+
+<p>To navigate on the real robot, I needed a similar command to set_vel. To do this, I created the commands move_distance, and move_angle.</p>
+
+<p>move_distance PID controls the robot a certain distance forward. Here is the code for it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">move_distance</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span><span class="n">dist</span><span class="p">,</span><span class="nb">dir</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span><span class="o">*</span><span class="mi">1000</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">CHANGE_PID</span><span class="p">,</span> <span class="s">"|.08|0.008|.1|60|50|1.5"</span><span class="p">)</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">DO_PID</span><span class="p">,</span> <span class="s">"|3000|"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> <span class="o">+</span> <span class="s">"|0|0|"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">dir</span><span class="p">))</span>
+</code></pre></div></div>
+<p>Here the PID values are set for TOF control and the control is executed for distance control. DO_PID will be explained later</p>
+
+<p>move_angle will move the robot a certain number of degrees shown here.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">move_angle</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span><span class="n">angle</span><span class="p">):</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">CHANGE_PID</span><span class="p">,</span> <span class="s">"|1.4|0.1|4|60|50|1.23"</span><span class="p">)</span>
+    <span class="n">ble</span><span class="p">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">CMD</span><span class="p">.</span><span class="n">DO_PID</span><span class="p">,</span> <span class="s">"|1200|"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">+</span> <span class="s">"|1|0|1"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Here, the same thing occurs, but with the PID variables for angular speed control and setting the pid flags for angular control.</p>
+
+<p>I created the general command DO_PID that will do PID on angular or distance control. The command looks like this.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">curr_val</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">curr_distance</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">is_angle</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">myICM</span><span class="p">.</span><span class="n">dataReady</span><span class="p">())</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="n">setAGMT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myICM</span><span class="p">);</span>
+    <span class="n">curr_val</span> <span class="o">=</span> <span class="n">yaw_g</span><span class="p">;</span>
+    <span class="n">desired_val</span> <span class="o">=</span> <span class="n">curr_val</span> <span class="o">+</span> <span class="n">fun_arg</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_angle</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">front_tof</span><span class="p">)</span>
+        <span class="n">vl53</span> <span class="o">=</span> <span class="n">vl53_1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">vl53</span> <span class="o">=</span> <span class="n">vl53_2</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">curr_distance</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">vl53</span><span class="p">.</span><span class="n">dataReady</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_angle</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">getDistance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vl53</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">curr_distance</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">front_tof</span><span class="p">)</span>
+        <span class="n">desired_distance</span> <span class="o">=</span> <span class="n">curr_distance</span> <span class="o">-</span> <span class="n">fun_arg</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">desired_distance</span> <span class="o">=</span> <span class="n">curr_distance</span> <span class="o">+</span> <span class="n">fun_arg</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"entering loop"</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">currTime</span> <span class="o">&lt;</span> <span class="n">duration</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">myICM</span><span class="p">.</span><span class="n">dataReady</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">is_angle</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">setAGMT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myICM</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">is_orient</span><span class="p">)</span>
+            <span class="n">doPID_IMU</span><span class="p">(</span><span class="n">yaw_g</span><span class="p">,</span> <span class="n">desired_val</span><span class="p">);</span>
+        <span class="k">else</span>
+            <span class="n">doPID_IMU</span><span class="p">(</span><span class="n">z_g</span><span class="p">,</span> <span class="n">fun_arg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">vl53</span><span class="p">.</span><span class="n">dataReady</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_angle</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int16_t</span> <span class="n">curr_distance</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="n">curr_val</span><span class="p">;</span>
+        <span class="kt">int16_t</span> <span class="n">prev_distance</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int16_t</span><span class="p">)</span><span class="n">curr_distance</span><span class="p">;</span>
+        <span class="n">getDistance</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vl53</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">curr_distance</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">curr_distance</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">curr_distance</span> <span class="o">=</span> <span class="n">prev_distance</span><span class="p">;</span>
+        <span class="n">doPID_DIST</span><span class="p">(</span><span class="n">curr_distance</span><span class="p">,</span> <span class="n">desired_distance</span><span class="p">,</span><span class="n">front_tof</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">stop</span><span class="p">();</span>
+</code></pre></div></div>
+<p>The process here is that the robot takes a current value from the target sensor, and then adds the desired change in angle or distance to the current value and then PID controls on that new value.</p>
+
+<p>An important part of debugging navigation was that on some areas of the map, the front TOF sensor had trouble due to the high distance. To combat this, I move the second TOF sensor to the back of the robot. The PID control process is the same, but instead of subtracting the desired distance, the TOF sensor should move to a larger distance since it is facing the opposite way of the robot.</p>
+
+<h2 id="navigation-loop">Navigation loop</h2>
+
+<p>A few things had to be modified from the simulator in the loop for the real robot. First, instead of trying to get close to the waypoint, to reduce accumulating error, the localization would simply happen once per waypoint. Next, the current angle came from the odometry model rather than the actual belief result as localization didn’t provide a very accurate current angle.
+Here is the code for the navigation.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">real_path</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">),(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+<span class="n">test_path</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">waypoint</span> <span class="ow">in</span> <span class="n">real_path</span><span class="p">:</span>
+    <span class="n">orig</span> <span class="o">=</span> <span class="n">waypoint</span>
+    <span class="n">waypoint</span> <span class="o">=</span> <span class="n">ft_to_m</span><span class="p">(</span><span class="n">waypoint</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">ft_to_m</span><span class="p">(</span><span class="n">waypoint</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"direction"</span><span class="p">))</span>
+    <span class="c1">#current_angle = int(input("angle"))
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"waypoint(m):"</span><span class="p">,</span><span class="n">waypoint</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"waypoint(ft):"</span><span class="p">,(</span><span class="n">orig</span><span class="p">))</span>
+    <span class="n">d</span><span class="p">,</span><span class="n">angle</span> <span class="o">=</span> <span class="n">calc_movement</span><span class="p">(</span><span class="n">cur_pos</span><span class="p">,</span><span class="n">waypoint</span><span class="p">)</span> 
+    <span class="c1">#prev_odom, current_odom, prev_gt, current_gt = traj.execute_time_step(t)
+</span>    <span class="n">move_angle</span><span class="p">(</span><span class="n">ble</span><span class="p">,(</span><span class="n">angle</span> <span class="o">-</span> <span class="n">current_angle</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">math</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"moving distance:"</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">move_distance</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="c1"># Prediction Step
+</span>    <span class="c1">#loc.prediction_step(current_odom, prev_odom)
+</span>    <span class="c1">#loc.print_prediction_stats(plot_data=True)
+</span>    
+    <span class="c1"># Get Observation Data by executing a 360 degree rotation motion
+</span>    <span class="k">await</span> <span class="n">loc</span><span class="p">.</span><span class="n">get_observation_data</span><span class="p">()</span>
+    <span class="n">loc</span><span class="p">.</span><span class="n">update_step</span><span class="p">()</span>
+    <span class="n">bel</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">plot_update_step_data</span><span class="p">(</span><span class="n">plot_data</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">cur_pos</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span><span class="p">(</span><span class="ow">not</span> <span class="n">err</span><span class="p">(</span><span class="n">waypoint</span><span class="p">,</span><span class="n">cur_pos</span><span class="p">,</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="k">await</span> <span class="n">loc</span><span class="p">.</span><span class="n">get_observation_data</span><span class="p">()</span>
+        <span class="n">loc</span><span class="p">.</span><span class="n">update_step</span><span class="p">()</span>
+        <span class="n">bel</span> <span class="o">=</span> <span class="n">loc</span><span class="p">.</span><span class="n">plot_update_step_data</span><span class="p">(</span><span class="n">plot_data</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">cur_pos</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cur_pos</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">current_angle</span> <span class="o">=</span> <span class="n">bel</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"current position:"</span><span class="p">,</span> <span class="n">m_to_ft</span><span class="p">(</span><span class="n">cur_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">m_to_ft</span><span class="p">(</span><span class="n">cur_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"current angle:"</span><span class="p">,</span> <span class="n">m_to_ft</span><span class="p">(</span><span class="n">current_angle</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="manual-control">Manual control</h2>
+
+<p>Unfortunately, the localization did not work well despite repeatedly localizing in the same spot. Because of this, the choice was made to manually tweak the robot’s movements</p>
+
+<iframe src="https://drive.google.com/file/d/1tX1r-0XXAehmZ_5AssvleJHl_V5iDnm7/preview" width="640" height="480" allow="autoplay"></iframe>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 ECE-4160. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
