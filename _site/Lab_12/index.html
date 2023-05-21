@@ -412,6 +412,11 @@
 <p>Here, you can see I modified loc.print_update_stats to return the belief value to use as my current position and angle.
 Here is a video of the robot executing the navigation code, here some waypoints are cut off as the simulator robot is too large to move to the waypoints without touching the walls.</p>
 
+<video width="100%" controls="">
+  <source src="../videos/lab_12_sim.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video>
+
 <h1 id="setting-up-navigation">Setting up navigation</h1>
 <h2 id="pid">PID</h2>
 
@@ -538,7 +543,22 @@ Here is the code for the navigation.</p>
 
 <p>Unfortunately, the localization did not work well despite repeatedly localizing in the same spot. Because of this, the choice was made to manually tweak the robot’s movements</p>
 
+<p>Here is the code for manually controlling the PID values to change the robot’s position with.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">distance</span> <span class="o">=</span> <span class="kt">float</span><span class="p">(</span><span class="n">input</span><span class="p">(</span><span class="s">"distance"</span><span class="p">))</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="kt">float</span><span class="p">(</span><span class="n">input</span><span class="p">(</span><span class="s">"angle"</span><span class="p">))</span>
+<span class="n">dir</span> <span class="o">=</span> <span class="n">input</span><span class="p">(</span><span class="s">"dir"</span><span class="p">)</span>
+
+<span class="n">move_angle</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">move_distance</span><span class="p">(</span><span class="n">ble</span><span class="p">,</span><span class="n">ft_to_m</span><span class="p">(</span><span class="n">distance</span><span class="p">),</span><span class="n">dir</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Here is the video of the control.</p>
+
 <iframe src="https://drive.google.com/file/d/1tX1r-0XXAehmZ_5AssvleJHl_V5iDnm7/preview" width="640" height="480" allow="autoplay"></iframe>
+
+<p>Unfortunately, the robot hits the walls multiple times in the video. The issue is mainly with the inconsistency of the TOF sensor. Despite telling the robot to move 1 ft,
+the robot would move 4ft, because the closest wall was out of range. This would probably be fixed by using the back sensor or front sensor on the closest wall when necessary thus reducing inconsistency.</p>
 
 
         

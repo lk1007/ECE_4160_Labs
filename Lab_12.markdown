@@ -54,8 +54,15 @@ for waypoint in real_path:
         print(cur_pos)
 ```
 
+
 Here, you can see I modified loc.print_update_stats to return the belief value to use as my current position and angle.
 Here is a video of the robot executing the navigation code, here some waypoints are cut off as the simulator robot is too large to move to the waypoints without touching the walls.
+
+
+<video width="100%" controls>
+  <source src="../videos/lab_12_sim.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
 
 # Setting up navigation
